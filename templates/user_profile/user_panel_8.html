@@ -1,0 +1,128 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont">
+                       <div class="userBanner">
+                           <div class="row">
+                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                  <div class="userBox1">
+                                      <h3><b>Md. Bahalul Mollah</b></h3>
+                                      <h6>Customer Id</h6>
+                                      <h3 class="clrded3e62">00109370</h3>
+                                      <p><b>LifeTime Club Points <span>300</span></b></p>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                  <div class="userBox2">
+                                      <img src="images/content/Sonomm-Logo-Design5.png" alt="logo">
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                  <div class="userBox3">
+                                      <h5> Current Club Points</h5>
+                                      <h3 class="clrded3e62">300 <span>(৳30)</span></h3>
+                                      <h6>Points Left for</h6>
+                                      <h6><b>Silver Membership</b></h6>
+                                      <h3 class="clrded3e62">14700</h3>
+                                  </div>
+                              </div>
+                          </div>
+                       </div>
+                       
+                        <div class="userContent">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="referBox">
+                                        <ul>
+                                            <li>Refer Friends On</li>
+                                            <li><a class="fb" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a class="gl" href="#"><i class="fab fa-google"></i></a></li>
+                                            <li><a class="tw" href="#"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a class="env" href="#"><i class="far fa-envelope"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="referActionBox">
+                                        <div class="actionTop">
+                                            <span>Recent Actions</span>
+                                            <a href="#">View All</a>
+                                        </div>
+                                        <div class="actionTable">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Club Points Balance</th>
+                                                        <th>Added/Deducted</th>
+                                                        <th>Modified On</th>
+                                                        <th>Action</th>
+                                                        <th>Comment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>300</td>
+                                                        <td>+ 300</td>
+                                                        <td><p>2018-03-05</p><p>09:48:49</p></td>
+                                                        <td>Added</td>
+                                                        <td>New Customer Registration.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                   
+                        </div>                   
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

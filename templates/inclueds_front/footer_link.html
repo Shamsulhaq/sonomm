@@ -1,0 +1,42 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquary-isotop-3.0.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
+<!--==========ZOOMING===========-->
+<script type="text/javascript" src="{% static 'js/jquery.elevateZoom-3.0.8.min.js' %}"></script>
+<!--========END ZOOMING=========--> 
+
+<script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+    
+
+<!--==========ZOOMING===========-->
+<script>
+$("#zoom_03").elevateZoom({gallery:'gallery_01', cursor: 'crosshair', galleryActiveClass: "active", zoomType: "inner" });
+
+var zoomConfig = {cursor: 'crosshair', zoomType: "inner" }; 
+var image = $('#gallery_01 a');
+var zoomImage = $('img#zoom_03');
+
+zoomImage.elevateZoom(zoomConfig);
+    
+image.on('click', function(){
+    // Remove old instance od EZ
+    $('.zoomContainer').remove();
+    zoomImage.removeData('elevateZoom');
+    // Update source for images
+    zoomImage.attr('src', $(this).data('image'));
+    zoomImage.data('zoom-image', $(this).data('zoom-image'));
+    // Reinitialize EZ
+    zoomImage.elevateZoom(zoomConfig);
+});
+    
+</script>
+<!--==========ZOOMING===========-->
+
+
+</body>
+</html>

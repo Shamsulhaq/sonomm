@@ -1,0 +1,123 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont">
+                        <h3 class="dashTitle">Club Points Activity</h3>
+                        <div class="userContent">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="referActionBox">
+                                        <div class="actionTop">
+                                            <span>2 Item(s)</span>
+                                            <div class="showPage">
+                                                <label>Show</label>
+                                                <select>
+                                                    <option value="volvo">10 per page</option>
+                                                    <option value="volvo">20 per page</option>
+                                                    <option value="volvo">50 per page</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                        <div class="actionTable">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Club Points Balance</th>
+                                                        <th>Added/Deducted</th>
+                                                        <th>Modified On</th>
+                                                        <th>Action</th>
+                                                        <th>Comment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>300</td>
+                                                        <td>+ 300</td>
+                                                        <td><p>2018-03-05</p><p>09:48:49</p></td>
+                                                        <td>Added</td>
+                                                        <td>New Customer Registration.</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>300</td>
+                                                        <td>+ 300</td>
+                                                        <td><p>2018-03-05</p><p>09:48:49</p></td>
+                                                        <td>Added</td>
+                                                        <td>New Customer Registration.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="actionTop actionBtm">
+                                            <span>2 Item(s)</span>
+                                            <div class="showPage">
+                                                <label>Show</label>
+                                                <select>
+                                                    <option value="volvo">10 per page</option>
+                                                    <option value="volvo">20 per page</option>
+                                                    <option value="volvo">50 per page</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="loginBtn">
+                                            <a href="#" class="btn">Back</a>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>                   
+                        </div>                   
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

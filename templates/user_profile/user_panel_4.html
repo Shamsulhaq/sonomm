@@ -1,0 +1,133 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont">
+                      <h3 class="dashTitle">Add New Address</h3>
+                       <p class="required"><span>*</span> Required Fields</p>
+                        <div class="registrationBox">
+                            <div class="regBoxIn">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="clrded3e62">Contact Information</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>First Name<span>*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Last Name<span>*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>                                                
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Company</label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Telephone</label>
+                                                        <input class="form-control" type="tel">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <p class="clrded3e62">Address</p>
+                                                </div>
+                                                <div class="col-md-6 streetAdd">
+                                                    <div class="form-group">
+                                                        <label>Street Address<span>*</span></label>
+                                                        <input class="form-control" type="text">
+                                                        <input class="form-control" type="text">
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Country<span>*</span></label>
+                                                        <select>
+                                                            <option value="Bangladesh">Bangladesh</option>
+                                                            <option value="Afghanistan">Afghanistan</option>
+                                                            <option value="Albania">Albania</option>
+                                                            <option value="Albania">Albania</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Zip/Postal Code<span>*</span></label>
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                <div class="loginBtn">
+                                                    <a href="#" class="btn">Back</a>
+                                                    <button class="btn" type="submit">save</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>                                        
+                        </div>                                        
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

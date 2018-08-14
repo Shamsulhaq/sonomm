@@ -1,4 +1,4 @@
-"""sonomm URL Configuration
+"""Store URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -13,20 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
 
-from django.contrib import admin
-from django.urls import path, include
-
+# from auth_module.views import Index, index, all_product,product_details,registration
+from auth_module.views import index
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('auth_module.urls')),
+#     path('create', create_account, name='create'),
+    path('index', index, name='index'),
+#     path('', index, name='index'),
+    # path('all_product', all_product, name='all_product'),
+    # path('product_det', product_details, name='product_det'),
+    # path('registration', registration, name='registration'),
+
 ]
-
-if settings.DEBUG:
-
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,435 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+<style type="text/css">
+    .img1{background-image:url(images/content/regBg.jpg);}
+</style>
+
+<!--===================================-->
+<!--=========== BREADCRUMBS ===========-->
+<!--===================================-->
+    
+<div class="breadBox img1">
+    <div class="container">
+        <div class="breadBoxIn">
+            <h2>Checkout Method</h2>
+            <ul>
+                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
+                <li>Checkout Method</li>
+            </ul>
+        </div>
+    </div>
+</div>    
+    
+<!--===================================-->
+<!--========== registration ===========-->
+<!--===================================--> 
+
+<div class="pTopbtm60">
+    <div class="checkOut">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12">                    
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="checkSign"><i class="fas fa-check-square"></i></span>1. Checkout method <span class="downArrow"><i class="fas fa-angle-down"></i></span>
+                                </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                     <div class="checkOutBox">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Sign in with Email/Phone Number</label>
+                                                <input class="form-control" type="email" placeholder="Email /Phone Number">
+                                                <button class="btn">Continue</button>
+                                                <p><a href="#">Forgot password?</a></p>
+                                                <p>New to Sonomm? <a href="#">Create Account</a></p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <!--======If email/phone found on sonomm db======-->
+                                     <div class="checkOutBox">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Sign in with Email/Phone Number</label>
+                                                <span class="gmailBox">sarminakter2427@gmail.com <button class="chngBtn"><i class="fas fa-pencil-alt"></i> Change</button></span>
+                                                <input class="form-control" type="password" placeholder="Email /Phone Number">
+                                                <button class="btn">Continue</button>
+                                                <p><a href="#">Forgot password?</a></p>
+                                                <p>New to Sonomm? <a href="#">Create Account</a></p>
+                                            </div>
+                                        </form>
+                                    </div>                                    
+                                    
+                                    <div class="checkOutBox">
+                                        <form>
+                                            <fieldset>    	
+                                                <legend>Select A Billing Address From Your Address Book Or Enter A New Address.</legend>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="checkAddress removeAdForm">
+                                                                <div class="addressItem">
+                                                                    <h3>Sharmin Akter</h3>
+                                                                </div>
+                                                                <div class="addressItem">
+                                                                    <p><i class="fas fa-map-marker"></i> 81/kha<br>Dhaka<br>Bangladesh</p>
+                                                                </div>
+                                                                <div class="addressItem">
+                                                                    <p><i class="fas fa-phone-volume"></i> 01683894312</p>
+                                                                </div>
+                                                                <div class="addressBtn">
+                                                                    <a class="btn" href="JavaScript:void(0);">use this address <span class="selectSign"></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="checkAddress removeAdForm">
+                                                                <div class="addressItem">
+                                                                    <h3>Sharmin Akter</h3>
+                                                                </div>
+                                                                <div class="addressItem">
+                                                                    <p><i class="fas fa-map-marker"></i> 81/kha<br>Dhaka<br>Bangladesh</p>
+                                                                </div>
+                                                                <div class="addressItem">
+                                                                    <p><i class="fas fa-phone-volume"></i> 01683894312</p>
+                                                                </div>
+                                                                <div class="addressBtn">
+                                                                    <a class="btn" href="JavaScript:void(0);">use this address <span class="selectSign"></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12">
+                                                            <div class="checkAddress">
+                                                                <div class="addressBtn addBtmBtn">
+                                                                    <a class="btn" href="JavaScript:void(0);">use this address <span class="selectSign addSelect"></span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 addressForm AddForm">
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <fieldset>
+                                                                    <legend>First Name*</legend>
+                                                                    <input class="form-control" type="text" placeholder="First Name" required>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <fieldset>
+                                                                    <legend>Last Name*</legend>
+                                                                    <input class="form-control" type="text" placeholder="Last Name" required>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <fieldset>
+                                                                    <legend>Telephone*</legend>
+                                                                    <input class="form-control" type="text" placeholder="Telephone" required>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                <fieldset>
+                                                                    <legend>Address*</legend>
+                                                                    <textarea placeholder="Address"></textarea>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                               <fieldset>
+                                                                    <legend>State/Province*</legend>
+                                                                    <select class="form-control">
+                                                                          <option>Select State/Province</option>
+                                                                          <option>Dhaka</option>
+                                                                          <option>Khulna</option>
+                                                                          <option>Sylhet</option>
+                                                                          <option>Chittagong</option>
+                                                                    </select>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <fieldset>
+                                                                    <legend>City*</legend>
+                                                                    <input class="form-control" type="text" placeholder="City" required>
+                                                                </fieldset>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                               <div class="form-check">
+                                                                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                                   <label class="form-check-label" for="exampleCheck1">Save in address book</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <button type="submit" class="btn btn-primary">Continue</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default disablePanel">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="checkSign"><i class="fas fa-check-square"></i></span>2. Your Address <span class="downArrow"><i class="fas fa-angle-down"></i></span>
+                                </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="row checkOutBox addressForm">
+                                        <form action="">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>First Name*</legend>
+                                                    <input class="form-control" type="text" placeholder="First Name" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Last Name*</legend>
+                                                    <input class="form-control" type="text" placeholder="Last Name" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Email Address*</legend>
+                                                    <input class="form-control" type="email" placeholder="Email" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Mobile*</legend>
+                                                    <input class="form-control" type="text" placeholder="Mobile" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Address*</legend>
+                                                    <textarea placeholder="Address"></textarea>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                               <fieldset>
+                                                    <legend>State/Province*</legend>
+                                                    <select class="form-control">
+                                                          <option>Please Select resion, State or Province</option>
+                                                          <option>Dhaka</option>
+                                                          <option>Khulna</option>
+                                                          <option>Sylhet</option>
+                                                          <option>Chittagong</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>City*</legend>
+                                                    <input class="form-control" type="text" placeholder="City" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Password*</legend>
+                                                    <input class="form-control" type="password" placeholder="Password" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <fieldset>
+                                                    <legend>Confirm Password*</legend>
+                                                    <input class="form-control" type="password" placeholder="Confirm Password" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn">Continue</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="checkSign"><i class="fas fa-check-square"></i></span>3. Shipping Method<span class="downArrow"><i class="fas fa-angle-down"></i></span>
+                                </a>
+                                </h4>
+                            </div>
+                            
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                <div class="row checkOutBox paymentInfo">
+                                    <form action="">
+                                        <div class="col-md-12">
+                                           <div class="payInfo">
+                                               <span class="payBtn">
+                                                    <strong></strong>
+                                                </span>
+                                                <level>Regular Shipping <span>৳100</span> <br>
+                                                (Order will be delivered on or before 2018-03-10)</level>
+                                           </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="payInfo">
+                                                <span class="payBtn">
+                                                    <strong></strong>
+                                                </span>
+                                                <level>Office Collection <span>৳100</span> <br>
+                                                (Sonomm the order on 2018-03-07) <br> <span>Earn 100 Club Points</span></level>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 btnCol">
+                                            <button type="submit" class="btn btn-primary">Back</button>
+                                            <button type="submit" class="btn btn-primary">Continue</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class="checkSign"><i class="fas fa-check-square"></i></span>4. Payment Information<span class="downArrow"><i class="fas fa-angle-down"></i></span>
+                                </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <div class="row checkOutBox paymentInfo">
+                                        <form action="">
+                                            <div class="col-md-12">
+                                               <div class="payInfo">
+                                                   <span class="payBtn">
+                                                        <strong></strong>
+                                                    </span>
+                                                    <level>Cash On Delivary</level>
+                                               </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="payInfo">
+                                                    <span class="payBtn">
+                                                        <strong></strong>
+                                                    </span>
+                                                    <level>Online Payment <br> <span>Earn 200 Club Points</span></level>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 btnCol">
+                                                <button type="submit" class="btn btn-primary">Back</button>
+                                                <button type="submit" class="btn btn-primary">Continue</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFour"><span class="checkSign"><i class="fas fa-check-square"></i></span>5. Order Review<span class="downArrow"><i class="fas fa-angle-down"></i></span>
+                                </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                <div class="panel-body">
+                                    <div class="orderReview">
+                                        <div class="row topRow">
+                                            <div class="col-md-7">
+                                                <h5>Product Name</h5>   
+                                            </div>
+                                            <div class="col-md-2">
+                                                <h5>Price</h5>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <h5>Qty</h5>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <h5>Subtotal</h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row orderItem">
+                                            <div class="col-md-7">
+                                                <p>Xiaomi Mi A1 4GB/64GB With AMEX 10% Cashback & 12GB 4G GP Data</p> 
+                                                <span>color: </span> 
+                                                 <strong>Black</strong>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p>৳23,490</p>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <p>1</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p>৳23,490</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bottomRowGroup">
+                                            <div class="row">
+                                                <div class="col-md-10 rightAlign">
+                                                    <p>Subtotal</p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>৳23,490</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10 rightAlign">
+                                                    <p>Shipping & Handling (Regular Shipping - Delivery within 2-5 Days)</p> 
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>৳100</h4>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-md-10 rightAlign">
+                                                    <h4>Grand Total </h4> 
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>৳23,590</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row checkOutBox orderBtnRow">
+                                            <div class="col-md-12 orderBody">
+                                                <button class="btn" type="submit">Plase Order</button>
+                                                <p>Forgot an Item? <a href="#">Edit Your Cart</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

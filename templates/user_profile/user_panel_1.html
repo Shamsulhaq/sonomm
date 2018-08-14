@@ -1,0 +1,147 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont">
+                      <h3 class="dashTitle">My Dashboard</h3>
+                      <div class="userBanner">
+                          <div class="row">
+                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                  <div class="userBox1">
+                                      <h3><b>Md. Bahalul Mollah</b></h3>
+                                      <h6>Customer Id</h6>
+                                      <h3 class="clrded3e62">00109370</h3>
+                                      <p><b>LifeTime Club Points <span>300</span></b></p>
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                  <div class="userBox2">
+                                      <img src="images/content/Sonomm-Logo-Design5.png" alt="logo">
+                                  </div>
+                              </div>
+                              <div class="col-md-4 col-sm-6 col-xs-12">
+                                  <div class="userBox3">
+                                      <h5> Current Club Points</h5>
+                                      <h3 class="clrded3e62">300 <span>(৳30)</span></h3>
+                                      <h6>Points Left for</h6>
+                                      <h6><b>Silver Membership</b></h6>
+                                      <h3 class="clrded3e62">14700</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                       
+                      <div class="userContent">
+                          <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="dashTitle">Account Information</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="userContentIn">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="infoTop">
+                                                    <h5>Contact Information</h5>
+                                                    <a href="#">Edit</a>
+                                                </div>
+                                                <p>md bahalul</p>
+                                                <p>mbahalul0@gmail.com</p>
+                                                <a class="btn" href="#">Change Password</a>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="infoTop">
+                                                    <h5>Newsletters</h5>
+                                                    <a href="#pop1" data-fancybox="group">Edit</a>
+                                                    <div id="pop1" class="newsLttrPop">
+                                                        <form>
+                                                            <h5>Newsletter Subscription</h5>
+                                                            <div class="checkbox">
+                                                                <label><input type="checkbox">General Subscription</label>
+                                                                <div class="loginBtn">
+                                                                    <a href="#" class="btn">Back</a>
+                                                                    <button class="btn" type="submit">save</button>
+                                                                </div>
+                                                            </div>                                                            
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <p>You are currently not subscribed to any newsletter.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h5 class="marginBtm">Address Book</h5>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="infoTop">
+                                                    <h5>Default Billing Address</h5>
+                                                    <a href="#">Edit Address</a>
+                                                </div>
+                                                <p>You have not set a default billing address.</p>
+                                                <a class="btn" href="#">Manege Address</a>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="infoTop">
+                                                    <h5>Default Shipping Address</h5>
+                                                    <a href="#">Edit Address</a>
+                                                </div>
+                                                <p>You have not set a default shipping address.</p>                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>                   
+                      </div>                   
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

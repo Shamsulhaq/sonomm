@@ -1,0 +1,123 @@
+{% load static %}
+{% include "inclueds_front/head.html" %}
+{% include "inclueds_front/navigation.html" %}
+
+<style type="text/css">
+    .img1{background-image:url(media/images/content/regBg.jpg);}
+</style>
+
+<!--===================================-->
+<!--=========== BREADCRUMBS ===========-->
+<!--===================================-->
+    
+<div class="breadBox img1">
+    <div class="container">
+        <div class="breadBoxIn">
+            <h2>Registration</h2>
+            <ul>
+                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
+                <li>Registration</li>
+            </ul>
+        </div>
+    </div>
+</div>    
+    
+<!--===================================-->
+<!--========== registration ===========-->
+<!--===================================--> 
+
+<div class="registrationBox pTopbtm60">
+    <div class="container">
+        <div class="regBoxIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="regTopInfo">
+                        <h3>Create Account</h3>
+                        <p>Please Register using account detail bellow.</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name<span>*</span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name<span>*</span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email address<span>*</span></label>
+                                    <input class="form-control" type="email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile<span>*</span></label>
+                                    <input class="form-control" type="tel">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label>Password<span>*</span></label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label>Confirm Password<span>*</span></label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>                  
+                            <div class="col-md-12">
+                                <div class="checkbox">
+                                    <p>By clicking Register, you agree to our <a href="#">Terms and Conditions</a> that you have read our  Cookie Use Policy. You may receive SMS/Email message notifications from Sonomm at any time.</p>
+                                    <label><input type="checkbox" value="">Sign Up for Newsletter</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                 <div class="form-group">
+                                     <div class="sellerBox">
+                                         <p>Do You Want To Become Seller / Vendor?</p>
+                                         <label><input type="radio" name="optradio" onclick="show1();" name="tab" value="igottwo"> Yes</label><label><input type="radio" name="optradio" checked="checked" onclick="show2();" name="tab" value="igotnone"> No</label>
+                                        <div id="div1" class="form-group hide1">
+                                            <label>NID<span>*</span></label>
+                                            <input class="form-control" type="text" placeholder="1994170001412543">
+                                            <label>Shop URL</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                     
+                            <div class="col-md-12">
+                            <div class="loginBtn">
+                                <button class="btn" type="submit">Register</button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+{% include "inclueds_front/footer_common.html" %}
+{% include "inclueds_front/footer_link.html" %}
+
+
+

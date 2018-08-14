@@ -1,0 +1,70 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont giftBox">
+                        <h2>Gift Cards</h2>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label>Specify Gift Code</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="loginBtn">
+                                    <button class="btn" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+

@@ -1,0 +1,116 @@
+
+<?php
+	include "core/init.php"; 
+	include "inclueds_front/head.php"; 
+	include "inclueds_front/navigation.php";
+?>
+    
+<!--===================================-->
+<!--========== Main Body =============-->
+<!--===================================--> 
+   
+   <section class="contentBody">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 pageFlow">
+                   <h5><a href="index">Home</a> / <span>My Account</span></h5>
+               </div>
+               
+               <!------------------------------->
+               <!--------- Side Bar Start------->
+               <!------------------------------->
+               <div class="col-md-3 col-sm-12">                   
+                    <?php
+                        include "inclueds_front/user_dashboard_sidebar.php";
+                    ?>
+               </div>
+               <!------------------------------->
+               <!--------- Side Bar Finish------>
+               <!------------------------------->
+               
+               <!------------------------------->
+               <!-------- Content Start -------->
+               <!------------------------------->
+               <div class="col-md-9 col-sm-12">
+                   <div class="dashBrdCont">
+                      <div class="userContent">
+                          <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="dashTitle">Address Book</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="userContentIn addressBook">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="infoTop">
+                                                            <h5>Default Billing Address</h5>
+                                                        </div>
+                                                        <p>md bahalul</p>
+                                                        <p>mbahalul0@gmail.com</p>
+                                                        <p>117 east tejturi Bazar,farmget, Dhaka</p>
+                                                        <p>Dhaka</p>
+                                                        <p>Bangladesh</p>
+                                                        <p>01823737283</p>
+                                                        <a href="#">Change Billing Address</a>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="infoTop">
+                                                            <h5>Default Shipping Address</h5>
+                                                        </div>
+                                                        <p>md bahalul</p>
+                                                        <p>mbahalul0@gmail.com</p>
+                                                        <p>117 east tejturi Bazar,farmget, Dhaka</p>
+                                                        <p>Dhaka</p>
+                                                        <p>Bangladesh</p>
+                                                        <p>01823737283</p>
+                                                        <a href="#">Change Shipping Address</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="infoTop">
+                                                    <h5>Additional Address Entries</h5>
+                                                </div>
+                                                <p>md bahalul</p>
+                                                <p>mbahalul0@gmail.com</p>
+                                                <p>117 east tejturi Bazar,farmget, Dhaka</p>
+                                                <p>Dhaka</p>
+                                                <p>Bangladesh</p>
+                                                <p>01823737283</p>
+                                                <a href="#">Edit Address</a> &#124;
+                                                <a href="#">Delete Address</a>  
+                                                <div class="loginBtn">
+                                                    <a href="#" class="btn">Back</a>
+                                                    <button class="btn" type="submit">Add New Address</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>                   
+                      </div>                   
+                   </div>
+               </div>
+               
+               <!------------------------------->
+               <!-------- Content Finish -------->
+               <!------------------------------->
+               
+           </div>
+       </div>
+   </section>
+    
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->    
+    
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+<?php
+	include "inclueds_front/footer_common.php";
+	include "inclueds_front/footer_link.php"; 
+?>
+
