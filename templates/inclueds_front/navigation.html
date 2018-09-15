@@ -1,7 +1,7 @@
 <!--===================================-->
 <!--============== HEADER =============-->
 <!--===================================-->
-
+{% load static%}
 <header class="header">
     <div class="headerTop">
         <div class="container">
@@ -54,7 +54,7 @@
                                 {#                                </ul>#}
                             </li>
                             <li>
-                                <a href="#"><span></span><img class="countryImg" src="media/images/content/english.png">English</a>
+                                <a href="#"><span></span><img class="countryImg" src="{% static 'images/content/english.png' %}">English</a>
                                 {#                                <ul class="subDrop lastDrop">#}
                                 {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/bangladesh.png">Bangla</a></li>#}
                                 {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/english.png">English</a></li>#}
@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4">
-                    <a class="logo" href="index"><img src="media/images/content/Sonomm-Logo-Design5.png" alt=""></a>
+                    <a class="logo" href="{% url 'index' %}"><img src="{% static "images/content/Sonomm-Logo-Design5.png" %}" alt="logo img"></a>
                 </div>
                 <div class="col-md-4 col-sm-8">
                     <div class="hdrSerchBox">

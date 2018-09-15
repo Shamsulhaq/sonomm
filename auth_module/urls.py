@@ -16,13 +16,12 @@ Including another URLconf
 from django.urls import path
 
 # from auth_module.views import Index, index, all_product,product_details,registration
-from auth_module.views import index
+
 
 
 urlpatterns = [
 #     path('create', create_account, name='create'),
-    path('index', index, name='index'),
-#     path('', index, name='index'),
+
     # path('all_product', all_product, name='all_product'),
     # path('product_det', product_details, name='product_det'),
     # path('registration', registration, name='registration'),

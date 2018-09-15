@@ -1,0 +1,125 @@
+<li>
+    <div class="prdtItem">
+        <div class="prdtImg">
+            <img src="{{ prd.image.url }}" alt="">
+            <div class="cartOverlay">
+                <div class="cartOverlayIn">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-shopping-cart"
+                                           aria-hidden="true"></i></a><span
+                                class="cartIcon">Shopping Cart</span>
+                        </li>
+                        <li><a href="#{{ prd.pk }}" data-fancybox="gallery"><i
+                                class="fa fa-eye"
+                                aria-hidden="true"></i></a><span
+                                class="cartIcon">Quick View</span></li>
+                        <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span
+                                class="cartIcon">View Details</span></li>
+                        <li><a href="#"><i class="fa fa-heart"
+                                           aria-hidden="true"></i></a><span
+                                class="cartIcon">Wishlist</span></li>
+                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
+                                class="cartIcon">Comparison</span></li>
+                    </ul>
+                </div>
+                <div id="{{ prd.pk }}" class="prodctPop">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="popImgBox">
+                                <img src="{{ prd.image.url }}" alt="">
+                                <p> 20%Off</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <div class="popDetails">
+                                <div class="prdctSideBar">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="sidebarTop">
+                                                <h2 data-name="product_name">{{ prd.name }}</h2>
+                                                <span>BDT:{{ prd.price }}</span>
+                                                <p>{{ prd.sortDec }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="clrSizeBox">
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="clrBox">
+                                                        <form action="#">
+                                                            <label>Color: </label><br/>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="white"
+                                                                       checked> White
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="red"> Red
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="blue"> Blue
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="sizeBox">
+                                                        <form action="#">
+                                                            <label>Size:</label>
+                                                            <select name="product_size"
+                                                                    class="form-control input-sm">
+                                                                <option>S</option>
+                                                                <option>M</option>
+                                                                <option>L</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="clrSizeBox">
+                                                <div class="quantity">
+                                                    <label>Quantity:</label>
+                                                    <form action="#">
+                                                        <div id="field1">
+                                                            <button type="button" id="sub"
+                                                                    class="sub">-
+                                                            </button>
+                                                            <input type="number" id="1"
+                                                                   value="1"
+                                                                   min="0" max="10"/>
+                                                            <button type="button" id="add"
+                                                                    class="add">+
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn marTop20"><i
+                                            class="fas fa-cart-plus"></i> add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="new">New</span>
+        </div>
+        <div class="staricon">
+            <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="far fa-star"></i></li>
+            </ul>
+            <span>BDT:{{ prd.price }}</span>
+            <p><a href="#">{{ prd.name }}rt</a></p>
+        </div>
+    </div>
+</li>

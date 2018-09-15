@@ -2,10 +2,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect, render
 
 
-
 # Create Account.
-def index(request):
-    return render(request, 'index.html')
 
 #
 # def all_product(request):

@@ -1,4 +1,4 @@
-    
+{% load static %}
 <!--===================================-->
 <!--============== FOOTER =============-->
 <!--===================================-->
@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="ftrBtm">
-        <a class="ftrLogo" href="index"><img src="media/images/content/Sonomm-Logo-Design5.png" alt=""></a>
+        <a class="ftrLogo" href="{% url 'index' %}"><img src="{% static 'images/content/Sonomm-Logo-Design5.png' %}" alt=""></a>
         <p>Designed and Developed by <a href="http://ceedtech.com/" target="_blank">ceedTech</a></p>
         <p>Copyright - Sonomm 2018</p>
     </div>

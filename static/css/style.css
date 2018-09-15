@@ -793,19 +793,19 @@ ul.mainManuIn a:before {
 }
 
 .service1:before {
-    background: url("/media/images/content/home_delivery.png") no-repeat;
+    background: url("/static/images/content/home_delivery.png") no-repeat;
 }
 
 .service2:before {
-    background: url("/media/images/content/safe.png") no-repeat;
+    background: url("/static/images/content/safe.png") no-repeat;
 }
 
 .service3:before {
-    background: url("/media/images/content/upto_return.png") no-repeat;
+    background: url("/static/images/content/upto_return.png") no-repeat;
 }
 
 .service4:before {
-    background: url("/media/images/content/payment_method.png") no-repeat;
+    background: url("/static/images/content/payment_method.png") no-repeat;
 }
 
 .serviceItem:hover .serviceImg:before {

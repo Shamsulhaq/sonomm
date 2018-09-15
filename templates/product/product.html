@@ -1,815 +1,151 @@
-<div class="productTab">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#menu1">New arrival</a></li>
-                <li><a data-toggle="tab" href="#menu2">popular</a></li>
-                <li><a data-toggle="tab" href="#menu3">man</a></li>
-                <li><a data-toggle="tab" href="#menu4">woman</a></li>
-                <li><a data-toggle="tab" href="#menu5">kids</a></li>
-                <li><a data-toggle="tab" href="#menu6">foods</a></li>
+<div class="col-md-3">
+    <div class="prdtItem">
+        <div class="prdtImg">
+            <img src="{{ prd.image.url }}" alt="">
+            <div class="cartOverlay">
+                <div class="cartOverlayIn">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-shopping-cart"
+                                           aria-hidden="true"></i></a><span
+                                class="cartIcon">Shopping Cart</span></li>
+                        <li><a href="#{{ prd.pk }}"
+                               data-fancybox="gallery1"><i
+                                class="fa fa-eye"
+                                aria-hidden="true"></i></a><span
+                                class="cartIcon">Quick View</span></li>
+                        <li><a href="#"><i
+                                class="fas fa-external-link-alt"></i></a><span
+                                class="cartIcon">View Details</span></li>
+                        <li><a href="#"><i class="fa fa-heart"
+                                           aria-hidden="true"></i></a><span
+                                class="cartIcon">Wishlist</span></li>
+                        <li><a href="#"><i
+                                class="fas fa-balance-scale"></i></a><span
+                                class="cartIcon">Comparison</span></li>
+                    </ul>
+                </div>
+                <div id="{{ prd.pk }}" class="prodctPop">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="popImgBox">
+                                <img src="{{ prd.image.url }}"
+                                     alt="">
+                                {% if prd.is_Feature %}
+
+                                    <p>Feature</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <div class="popDetails">
+                                <div class="prdctSideBar">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="sidebarTop">
+                                                <h2 data-name="product_name">
+                                                    {{ prd.name }}</h2>
+                                                <span>{{ prd.price }}</span>
+                                                <p>{{ prd.sortDec }}.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="clrSizeBox">
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="clrBox">
+                                                        <form action="#">
+                                                            <label>Color: </label><br/>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="white"
+                                                                       checked>
+                                                                White
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="red">
+                                                                Red
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio"
+                                                                       name="product_color"
+                                                                       value="blue">
+                                                                Blue
+                                                            </label>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="sizeBox">
+                                                        <form action="#">
+                                                            <label>Size:</label>
+                                                            <select name="product_size"
+                                                                    class="form-control input-sm">
+                                                                <option>S
+                                                                </option>
+                                                                <option>M
+                                                                </option>
+                                                                <option>L
+                                                                </option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="clrSizeBox">
+                                                <div class="quantity">
+                                                    <label>Quantity:</label>
+                                                    <form action="#">
+                                                        <div id="field1">
+                                                            <button type="button"
+                                                                    id="sub"
+                                                                    class="sub">
+                                                                -
+                                                            </button>
+                                                            <input type="number"
+                                                                   id="1"
+                                                                   value="1"
+                                                                   min="0"
+                                                                   max="10"/>
+                                                            <button type="button"
+                                                                    id="add"
+                                                                    class="add">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button"
+                                            class="btn marTop20">
+                                        <i
+                                                class="fas fa-cart-plus"></i>
+                                        add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if prd.is_newAriavle %}
+                <span class="new">New</span>
+            {% endif %}
+        </div>
+        <div class="staricon">
+            <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="far fa-star"></i></li>
             </ul>
-        </div>
-
-        <div class="col-md-4 col-sm-12 col-xs-12">
-            <div class="prdctLeftBox">
-                <ul>
-                    <li>
-                        <div class="prdtItem">
-                            <div class="prdtImg">
-                                <img src="media/images/content/prdct_1.jpg" alt="">
-                                <div class="cartOverlay">
-                                    <div class="cartOverlayIn">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"
-                                                               aria-hidden="true"></i></a><span class="cartIcon">Shopping Cart</span>
-                                            </li>
-                                            <li><a href="#pop1" data-fancybox="gallery"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a><span
-                                                    class="cartIcon">Quick View</span></li>
-                                            <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span
-                                                    class="cartIcon">View Details</span></li>
-                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span
-                                                    class="cartIcon">Wishlist</span></li>
-                                            <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                    class="cartIcon">Comparison</span></li>
-                                        </ul>
-                                    </div>
-                                    <div id="pop1" class="prodctPop">
-                                        <div class="row">
-                                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                                <div class="popImgBox">
-                                                    <img src="media/images/content/prdct_1.jpg" alt="">
-                                                    <p>Off20%</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-7 col-sm-7 col-xs-12">
-                                                <div class="popDetails">
-                                                    <div class="prdctSideBar">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="sidebarTop">
-                                                                    <h2 data-name="product_name">Black grameen check
-                                                                        shirt</h2>
-                                                                    <span>TK700</span>
-                                                                    <p>It is a long established fact that a reader will
-                                                                        be distracted by the readable content of a page
-                                                                        when looking at its layout. The point of using
-                                                                        Lorem Ipsum is that it has a more-or-less normal
-                                                                        distribution.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="clrSizeBox">
-                                                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                        <div class="clrBox">
-                                                                            <form action="#">
-                                                                                <label>Color: </label><br/>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="white" checked> White
-                                                                                </label>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="red"> Red
-                                                                                </label>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="blue"> Blue
-                                                                                </label>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                        <div class="sizeBox">
-                                                                            <form action="#">
-                                                                                <label>Size:</label>
-                                                                                <select name="product_size"
-                                                                                        class="form-control input-sm">
-                                                                                    <option>S</option>
-                                                                                    <option>M</option>
-                                                                                    <option>L</option>
-                                                                                </select>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="clrSizeBox">
-                                                                    <div class="quantity">
-                                                                        <label>Quantity:</label>
-                                                                        <form action="#">
-                                                                            <div id="field1">
-                                                                                <button type="button" id="sub"
-                                                                                        class="sub">-
-                                                                                </button>
-                                                                                <input type="number" id="1" value="1"
-                                                                                       min="0" max="10"/>
-                                                                                <button type="button" id="add"
-                                                                                        class="add">+
-                                                                                </button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="btn marTop20"><i
-                                                                class="fas fa-cart-plus"></i> add to cart
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span class="new">New</span>
-                            </div>
-                            <div class="staricon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="far fa-star"></i></li>
-                                </ul>
-                                <span>TK30.00</span>
-                                <p><a href="#">Black grameen check shirt</a></p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="prdtItem">
-                            <div class="prdtImg">
-                                <img src="media/images/content/prdct_1.jpg" alt="">
-                                <div class="cartOverlay">
-                                    <div class="cartOverlayIn">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"
-                                                               aria-hidden="true"></i></a><span class="cartIcon">Shopping Cart</span>
-                                            </li>
-                                            <li><a href="#pop1" data-fancybox="gallery"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a><span
-                                                    class="cartIcon">Quick View</span></li>
-                                            <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span
-                                                    class="cartIcon">View Details</span></li>
-                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span
-                                                    class="cartIcon">Wishlist</span></li>
-                                            <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                    class="cartIcon">Comparison</span></li>
-                                        </ul>
-                                    </div>
-                                    <div id="pop1" class="prodctPop">
-                                        <div class="row">
-                                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                                <div class="popImgBox">
-                                                    <img src="media/images/content/prdct_1.jpg" alt="">
-                                                    <p>Off20%</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-7 col-sm-7 col-xs-12">
-                                                <div class="popDetails">
-                                                    <div class="prdctSideBar">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="sidebarTop">
-                                                                    <h2 data-name="product_name">Black grameen check
-                                                                        shirt</h2>
-                                                                    <span>TK700</span>
-                                                                    <p>It is a long established fact that a reader will
-                                                                        be distracted by the readable content of a page
-                                                                        when looking at its layout. The point of using
-                                                                        Lorem Ipsum is that it has a more-or-less normal
-                                                                        distribution.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="clrSizeBox">
-                                                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                        <div class="clrBox">
-                                                                            <form action="#">
-                                                                                <label>Color: </label><br/>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="white" checked> White
-                                                                                </label>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="red"> Red
-                                                                                </label>
-                                                                                <label class="radio-inline">
-                                                                                    <input type="radio"
-                                                                                           name="product_color"
-                                                                                           value="blue"> Blue
-                                                                                </label>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                        <div class="sizeBox">
-                                                                            <form action="#">
-                                                                                <label>Size:</label>
-                                                                                <select name="product_size"
-                                                                                        class="form-control input-sm">
-                                                                                    <option>S</option>
-                                                                                    <option>M</option>
-                                                                                    <option>L</option>
-                                                                                </select>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="clrSizeBox">
-                                                                    <div class="quantity">
-                                                                        <label>Quantity:</label>
-                                                                        <form action="#">
-                                                                            <div id="field1">
-                                                                                <button type="button" id="sub"
-                                                                                        class="sub">-
-                                                                                </button>
-                                                                                <input type="number" id="1" value="1"
-                                                                                       min="0" max="10"/>
-                                                                                <button type="button" id="add"
-                                                                                        class="add">+
-                                                                                </button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="btn marTop20"><i
-                                                                class="fas fa-cart-plus"></i> add to cart
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span class="new">New</span>
-                            </div>
-                            <div class="staricon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="far fa-star"></i></li>
-                                </ul>
-                                <span>TK30.00</span>
-                                <p><a href="#">Black grameen check shirt</a></p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-8 col-sm-12 col-xs-12">
-            <div class="tab-content">
-                <div id="menu1" class="tab-pane fade in active">
-                    <div class="productBoxIn">
-                        <div class="prdctRgtBox">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#pop2" data-fancybox="gallery1"><i
-                                                                class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                                <div id="pop2" class="prodctPop">
-                                                    <div class="row">
-                                                        <div class="col-md-5 col-sm-5 col-xs-12">
-                                                            <div class="popImgBox">
-                                                                <img src="media/images/content/prdct_1.jpg" alt="">
-                                                                <p>Off20%</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7 col-sm-7 col-xs-12">
-                                                            <div class="popDetails">
-                                                                <div class="prdctSideBar">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="sidebarTop">
-                                                                                <h2 data-name="product_name">Black
-                                                                                    grameen check shirt</h2>
-                                                                                <span>TK700</span>
-                                                                                <p>It is a long established fact that a
-                                                                                    reader will be distracted by the
-                                                                                    readable content of a page when
-                                                                                    looking at its layout. The point of
-                                                                                    using Lorem Ipsum is that it has a
-                                                                                    more-or-less normal
-                                                                                    distribution.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="clrSizeBox">
-                                                                                <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                                    <div class="clrBox">
-                                                                                        <form action="#">
-                                                                                            <label>Color: </label><br/>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="white"
-                                                                                                       checked> White
-                                                                                            </label>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="red"> Red
-                                                                                            </label>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="blue">
-                                                                                                Blue
-                                                                                            </label>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                                    <div class="sizeBox">
-                                                                                        <form action="#">
-                                                                                            <label>Size:</label>
-                                                                                            <select name="product_size"
-                                                                                                    class="form-control input-sm">
-                                                                                                <option>S</option>
-                                                                                                <option>M</option>
-                                                                                                <option>L</option>
-                                                                                            </select>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="clrSizeBox">
-                                                                                <div class="quantity">
-                                                                                    <label>Quantity:</label>
-                                                                                    <form action="#">
-                                                                                        <div id="field1">
-                                                                                            <button type="button"
-                                                                                                    id="sub"
-                                                                                                    class="sub">-
-                                                                                            </button>
-                                                                                            <input type="number" id="1"
-                                                                                                   value="1" min="0"
-                                                                                                   max="10"/>
-                                                                                            <button type="button"
-                                                                                                    id="add"
-                                                                                                    class="add">+
-                                                                                            </button>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn marTop20"><i
-                                                                            class="fas fa-cart-plus"></i> add to cart
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="new">New</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <span class="priceOvRgt">TK35.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <div class="productBoxIn">
-                        <div class="prdctRgtBox">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="prdtItem">
-                                        <div class="prdtImg">
-                                            <img src="media/images/content/prdct_1.jpg" alt="">
-                                            <div class="cartOverlay">
-                                                <div class="cartOverlayIn">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Shopping Cart</span></li>
-                                                        <li><a href="#pop2" data-fancybox="gallery1"><i
-                                                                class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Quick View</span></li>
-                                                        <li><a href="#"><i
-                                                                class="fas fa-external-link-alt"></i></a><span
-                                                                class="cartIcon">View Details</span></li>
-                                                        <li><a href="#"><i class="fa fa-heart"
-                                                                           aria-hidden="true"></i></a><span
-                                                                class="cartIcon">Wishlist</span></li>
-                                                        <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                                class="cartIcon">Comparison</span></li>
-                                                    </ul>
-                                                </div>
-                                                <div id="pop2" class="prodctPop">
-                                                    <div class="row">
-                                                        <div class="col-md-5 col-sm-5 col-xs-12">
-                                                            <div class="popImgBox">
-                                                                <img src="media/images/content/prdct_1.jpg" alt="">
-                                                                <p>Off20%</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7 col-sm-7 col-xs-12">
-                                                            <div class="popDetails">
-                                                                <div class="prdctSideBar">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="sidebarTop">
-                                                                                <h2 data-name="product_name">Black
-                                                                                    grameen check shirt</h2>
-                                                                                <span>TK700</span>
-                                                                                <p>It is a long established fact that a
-                                                                                    reader will be distracted by the
-                                                                                    readable content of a page when
-                                                                                    looking at its layout. The point of
-                                                                                    using Lorem Ipsum is that it has a
-                                                                                    more-or-less normal
-                                                                                    distribution.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="clrSizeBox">
-                                                                                <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                                    <div class="clrBox">
-                                                                                        <form action="#">
-                                                                                            <label>Color: </label><br/>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="white"
-                                                                                                       checked> White
-                                                                                            </label>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="red"> Red
-                                                                                            </label>
-                                                                                            <label class="radio-inline">
-                                                                                                <input type="radio"
-                                                                                                       name="product_color"
-                                                                                                       value="blue">
-                                                                                                Blue
-                                                                                            </label>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                                    <div class="sizeBox">
-                                                                                        <form action="#">
-                                                                                            <label>Size:</label>
-                                                                                            <select name="product_size"
-                                                                                                    class="form-control input-sm">
-                                                                                                <option>S</option>
-                                                                                                <option>M</option>
-                                                                                                <option>L</option>
-                                                                                            </select>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="clrSizeBox">
-                                                                                <div class="quantity">
-                                                                                    <label>Quantity:</label>
-                                                                                    <form action="#">
-                                                                                        <div id="field1">
-                                                                                            <button type="button"
-                                                                                                    id="sub"
-                                                                                                    class="sub">-
-                                                                                            </button>
-                                                                                            <input type="number" id="1"
-                                                                                                   value="1" min="0"
-                                                                                                   max="10"/>
-                                                                                            <button type="button"
-                                                                                                    id="add"
-                                                                                                    class="add">+
-                                                                                            </button>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn marTop20"><i
-                                                                            class="fas fa-cart-plus"></i> add to cart
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="new">New</span>
-                                        </div>
-                                        <div class="staricon">
-                                            <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="far fa-star"></i></li>
-                                            </ul>
-                                            <span>TK30.00</span>
-                                            <span class="priceOvRgt">TK35.00</span>
-                                            <p><a href="#">Black grameen check shirt</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                </div>
-                <div id="menu4" class="tab-pane fade">
-                </div>
-                <div id="menu5" class="tab-pane fade">
-                </div>
-                <div id="menu6" class="tab-pane fade">
-                </div>
-            </div>
+            <span>BDT:{{ prd.price }}</span>
+            <span class="priceOvRgt">BDT:{{ prd.regular_price }}</span>
+            <p><a href="#">{{ prd.name }}</a></p>
         </div>
     </div>
 </div>
+

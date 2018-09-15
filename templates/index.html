@@ -1,11 +1,11 @@
 {% load static %}
-{% include "inclueds_front/head.html"  %}
+{% include "inclueds_front/head.html" %}
 {% include "inclueds_front/navigation.html" %}
 {% include "inclueds_front/slider_main.html" %}
 
 <!--===================================-->
 <!--=========== OUR SERVICE ===========-->
-<!--===================================--> 
+<!--===================================-->
 
 {#<div class="serviceBox pTopbtm60">#}
 {#    <div class="container">#}
@@ -41,11 +41,11 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
-    
+
 <!--===================================-->
 <!--========== LATEST NEWS12 ==========-->
 <!--===================================-->
-    
+
 {#<div class="latestNews">#}
 {#    <div class="container">#}
 {#        <div class="row">#}
@@ -74,7 +74,7 @@
 <!--===================================-->
 <!--========= FANTASY FRIDAY ==========-->
 <!--===================================-->
-    
+
 {#<div class="fantasyBox pTopbtm60">#}
 {#    <div class="fridayTitle">#}
 {#        <h2>Fantastic Friday</h2>#}
@@ -180,7 +180,7 @@
 {#        </ul>#}
 {#    </div>#}
 {#</div>#}
-    
+
 <!--===================================-->
 <!--========== Organic INFO ===========-->
 <!--===================================-->
@@ -189,7 +189,41 @@
         <div class="titleBox">
             <h2>Organic Products</h2>
         </div>
-{% include 'product/product.html' %}
+        <div class="productTab">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="prdctLeftBox">
+                        <ul>
+                            {% for prd in orproducts %}
+                                {% if prd.is_slide %}
+                                    {% include 'product/product_slide.html' %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="tab-content">
+
+                        <div id="{{ cat.name }}" class="tab-pane fade in active">
+                            <div class="productBoxIn">
+                                <div class="prdctRgtBox">
+                                    <div class="row">
+                                        {% for prd in orproducts %}
+                                            {% include 'product/product.html' %}
+                                        {% endfor %}
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!--===================================-->
@@ -204,86 +238,18 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop1.jpg" alt="">
-                        </div>
-                        <p>Computer &amp; Tablets</p>
-                    </a>
+            {% for c in cat %}
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="shopCatItem">
+                        <a href="#">
+                            <div class="shopImg">
+                                <img src="{{ c.image.url }}" alt="">
+                            </div>
+                            <p>{{ c.name }}</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop2.jpg" alt="">
-                        </div>
-                        <p>Watches</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop3.jpg" alt="">
-                        </div>
-                        <p>Home &amp; Living</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop4.jpg" alt="">
-                        </div>
-                        <p>Men</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop5.jpg" alt="">
-                        </div>
-                        <p>Women</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop1.jpg" alt="">
-                        </div>
-                        <p>Computer &amp; Tablets</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop2.jpg" alt="">
-                        </div>
-                        <p>Watches</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-6">
-                <div class="shopCatItem">
-                    <a href="#">
-                        <div class="shopImg">
-                            <img src="media/images/content/shop3.jpg" alt="">
-                        </div>
-                        <p>Home &amp; Living</p>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -296,17 +262,53 @@
         <div class="titleBox">
             <h2>New Arrival Products</h2>
         </div>
-{% include 'product/product.html' %}
+        <div class="productTab">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="prdctLeftBox">
+                        <ul>
+                            {% for prd in products %}
+                                {% if prd.is_slide and prd.is_newAriavle %}
+                                    {% include 'product/product_slide.html' %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="tab-content">
+
+                        <div id="{{ cat.name }}" class="tab-pane fade in active">
+                            <div class="productBoxIn">
+                                <div class="prdctRgtBox">
+                                    <div class="row">
+                                        {% for prd in products %}
+                                            {% if prd.is_newAriavle %}
+                                            {% include 'product/product.html' %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!--===================================-->
 <!--=========== BIG OFFER =============-->
 <!--===================================-->
-    
+
 <div class="bigOffer pTopbtm60">
     <div class="container">
         <ul class="bigOfrSlid">
-            <li>                
+            <li>
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-md-12">
                         <div class="bigOfrLeft">
@@ -329,7 +331,7 @@
                     </div>
                 </div>
             </li>
-            <li>                
+            <li>
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-md-12">
                         <div class="bigOfrLeft">
@@ -355,11 +357,11 @@
         </ul>
     </div>
 </div>
-    
+
 <!--===================================-->
 <!--============= BIG ADD =============-->
 <!--===================================-->
-    
+
 {#<div class="bigAddBox pTopbtm60">#}
 {#    <div class="container">#}
 {#        <div class="row">#}
@@ -376,7 +378,7 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>  #}
-    
+
 <!--===================================-->
 <!--========== PRODUCT INFO ===========-->
 <!--===================================-->
@@ -445,7 +447,7 @@
 {#        </ul>#}
 {#    </div>#}
 {#</div>#}
-    
+
 <!--===================================-->
 <!--========= BEST SELLERS ============-->
 <!--===================================-->
@@ -522,7 +524,8 @@
                         <img src="media/images/content/foodcert_1.png" alt="">
                     </div>
                     <h4>Lorem Ipsum is simply dummy text</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
@@ -531,7 +534,8 @@
                         <img src="media/images/content/foodcert_2.png" alt="">
                     </div>
                     <h4>Lorem Ipsum is simply dummy text</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
@@ -540,19 +544,20 @@
                         <img src="media/images/content/foodcert_1.png" alt="">
                     </div>
                     <h4>Lorem Ipsum is simply dummy text</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
 <!--===================================-->
 <!--======== Inspiring Remarks ========-->
 <!--===================================-->
-    
+
 <div class="remarksBox ">
-    <div class="container">        
+    <div class="container">
         <div class="remarksBoxIn">
             <ul class="remarksSlider">
                 <li>
@@ -567,7 +572,9 @@
                                 <span class="borderTop"></span>
                                 <span class="borderBtm"></span>
                                 <h2>Inspiring Remarks</h2>
-                                <p>I always believe in the power of words, whether they are expressed in writing, or verbally. That is why when I decided to take my website redesign and e-mail marketing business to the next level... <a href="#">Readmore</a></p>
+                                <p>I always believe in the power of words, whether they are expressed in writing, or
+                                    verbally. That is why when I decided to take my website redesign and e-mail
+                                    marketing business to the next level... <a href="#">Readmore</a></p>
                                 <h4 class="remakName">Muhit Rana</h4>
                                 <p>e-Learning Specialist</p>
                                 <div class="socialBox">
@@ -594,7 +601,9 @@
                                 <span class="borderTop"></span>
                                 <span class="borderBtm"></span>
                                 <h2>Inspiring Remarks</h2>
-                                <p>I've been attached with Writers Arena to improve my business to the next level. I found Mr Muhit Rana to be very professional, honest and knowledgeable, and she guided... <a href="#">Readmore</a></p>
+                                <p>I've been attached with Writers Arena to improve my business to the next level. I
+                                    found Mr Muhit Rana to be very professional, honest and knowledgeable, and she
+                                    guided... <a href="#">Readmore</a></p>
                                 <h4 class="remakName">Muhit Rana</h4>
                                 <p>e-Learning Specialist</p>
                                 <div class="socialBox">
@@ -621,7 +630,9 @@
                                 <span class="borderTop"></span>
                                 <span class="borderBtm"></span>
                                 <h2>Inspiring Remarks</h2>
-                                <p>I'd say simply that Writers Arena team is really excellent and it is some of the best services I have received both online and offline in a long time. If you would like a professional... <a href="#">Readmore</a></p>
+                                <p>I'd say simply that Writers Arena team is really excellent and it is some of the best
+                                    services I have received both online and offline in a long time. If you would like a
+                                    professional... <a href="#">Readmore</a></p>
                                 <h4 class="remakName">Muhit Rana</h4>
                                 <p>e-Learning Specialist</p>
                                 <div class="socialBox">
@@ -639,7 +650,7 @@
             </ul>
         </div>
     </div>
- </div>
+</div>
 
 <!--===================================-->
 <!--============ NEWSLETTER ===========-->
@@ -658,20 +669,21 @@
                     <form action="" method="post" role="form">
                         <div class="input-group">
                             <input class="form-control" name="email" placeholder="Enter your email" type="email">
-                            <span class="input-group-addon"><input value="" name="btn_news" class="btn" type="submit"><span>Subscribe</span></span>
-                        </div>                    
+                            <span class="input-group-addon"><input value="" name="btn_news" class="btn"
+                                                                   type="submit"><span>Subscribe</span></span>
+                        </div>
                     </form>
-                </div>    
+                </div>
             </div>
             <div class="col-md-3"></div>
         </div>
     </div>
 </div>
-    
+
 <!--===================================-->
 <!--============= BACK TOP ============-->
-<!--===================================-->    
-    
+<!--===================================-->
+
 <p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
 
 
