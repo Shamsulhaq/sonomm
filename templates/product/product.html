@@ -30,10 +30,8 @@
                             <div class="popImgBox">
                                 <img src="{{ prd.image.url }}"
                                      alt="">
-                                {% if prd.is_Feature %}
+                                    <p>{{ prd.get_discunt }} % Off</p>
 
-                                    <p>Feature</p>
-                                {% endif %}
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7 col-xs-12">
