@@ -1,0 +1,90 @@
+{% load static %}
+{% include "inclueds_front/head.html" %}
+{% include "inclueds_front/navigation.html" %}
+<style type="text/css">
+    .img1 {
+        background-image: url({% static 'images/content/bgImg.jpg' %});
+    }
+</style>
+
+<!--===================================-->
+<!--=========== BREADCRUMBS ===========-->
+<!--===================================-->
+
+<div class="breadBox img1">
+    <div class="container">
+        <div class="breadBoxIn">
+            <h2>{{ title }}</h2>
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
+                <li>{{ title }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--===================================-->
+<!--============= PRODUCT =============-->
+<!--===================================-->
+
+
+<!--===================================-->
+<!--============= PRODUCT  ============-->
+<!--===================================-->
+<div class="organixBox">
+
+    <div id="01" class="learnApp">
+        <div class="container">
+            <div class="titleBox">
+                <h2>{{ title }}</h2>
+            </div>
+            <div class="row">
+                <!-- Single Product  -->
+                {% for prd in products %}
+
+                    {% include 'product/product.html' %}
+                    {% empty %}
+                    <p style="color: #ab0225;font-size: 20px"> "{{ request.GET.search }}" Not Available! </p>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- PAGINATION BOX-->
+    <div class="paginationBox">
+        <div class="container">
+            {% if products.has_other_pages %}
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                        <li><a href="?page={{ products.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                        <li class="disabled"><span>&laquo;</span></li>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if products.has_next %}
+                        <li><a href="?page={{ products.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                        <li class="disabled"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->
+
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+{% include "inclueds_front/footer_common.html" %}
+{% include "inclueds_front/footer_link.html" %}
+

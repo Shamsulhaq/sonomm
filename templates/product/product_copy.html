@@ -153,6 +153,7 @@
                         <div class="prdctRgtBox">
                             <div class="row">
                                 {% for prd in products %}
+                                    {% ifequal {{ prd.category }},{{ cat.name }} %}
 
 
                                     <div class="col-md-3">
@@ -305,6 +306,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% endifequal %}
 
                                 {% endfor %}
 

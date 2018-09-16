@@ -1,11 +1,8 @@
-
-<?php
-	include "core/init.php"; 
-	include "inclueds_front/head.php"; 
-	include "inclueds_front/navigation.php";
-?>
+{% load static %}
+{% include "inclueds_front/head.html" %}
+{% include "inclueds_front/navigation.html" %}
 <style type="text/css">
-    .img1{background-image:url(images/content/bgImg.jpg);}
+    .img1{background-image:url({% static 'images/content/bgImg.jpg' %});}
 </style>
 
 <!--===================================-->
@@ -17,7 +14,7 @@
         <div class="breadBoxIn">
             <h2>Organic</h2>
             <ul>
-                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
                 <li>Organic</li>
             </ul>
         </div>
@@ -101,9 +98,9 @@
         </div>
     </div>
 </div>
-<div class="organixBox">    
+<div class="organixBox">
     <div id="01" class="learnApp">
-        <div class="container">            
+        <div class="container">
             <div class="titleBox">
                 <h2>Fruits</h2>
             </div>
@@ -118,7 +115,7 @@
                                         <div class="appsBtn">
                                             <div class="cartOverlayIn">
                                                 <ul>
-                                                    <li>                                                         
+                                                    <li>
                                                         <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                     </li>
                                                     <li><a href="#prdct1" data-fancybox="gallery1"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -135,7 +132,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-7 col-sm-7 col-xs-12">
-                                                            <div class="popDetails">                                                        
+                                                            <div class="popDetails">
                                                                 <div class="prdctSideBar">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -149,9 +146,9 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-12">
-                                                                            <div class="clrSizeBox">                                  
+                                                                            <div class="clrSizeBox">
                                                                                 <div class="quantity">
-                                                                                    <label>Quantity:</label>                                    
+                                                                                    <label>Quantity:</label>
                                                                                     <form action="#">
                                                                                         <div id="field1">
                                                                                             <button type="button" id="sub" class="sub">-</button>
@@ -226,7 +223,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price: <span class="priceOvRgt">300</span>285(BDT)</span>
@@ -246,7 +243,7 @@
                                         <div class="appsBtn">
                                             <div class="cartOverlayIn">
                                                 <ul>
-                                                    <li>                                                         
+                                                    <li>
                                                         <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                     </li>
                                                     <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -257,7 +254,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price: 130(BDT)</span>
@@ -277,7 +274,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -288,7 +285,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:80(BDT)</span>
@@ -308,7 +305,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -339,7 +336,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -350,7 +347,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:80(BDT)</span>
@@ -412,9 +409,9 @@
             </div>
         </div>
     </div>
-    
+
     <div id="02" class="learnApp">
-        <div class="container">            
+        <div class="container">
             <div class="titleBox">
                 <h2>Vegetables</h2>
             </div>
@@ -429,7 +426,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -439,7 +436,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:30(BDT)</span>
@@ -459,7 +456,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -469,7 +466,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:60(BDT)</span>
@@ -489,7 +486,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -499,7 +496,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:40(BDT)</span>
@@ -519,7 +516,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -529,7 +526,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:80(BDT)</span>
@@ -549,7 +546,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -559,7 +556,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <div class="priceBox">
                                         <span class="amount pull-left">Price:20(BDT)</span>
@@ -618,9 +615,9 @@
             </div>
         </div>
     </div>
-    
+
     <div id="03" class="learnApp">
-        <div class="container">            
+        <div class="container">
             <div class="titleBox">
                 <h2>Fishes</h2>
             </div>
@@ -635,7 +632,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -645,7 +642,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <span class="amount">Tk300</span>
                                     <h3>Hilsa (1kg+-)</h3>
@@ -662,7 +659,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -672,7 +669,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <span class="amount">Tk260</span>
                                     <h3>Katla (1kg+-)</h3>
@@ -689,7 +686,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -699,7 +696,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <span class="amount">Tk400</span>
                                     <h3>Climbing perch (Koi 1kg+-)</h3>
@@ -716,7 +713,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -726,7 +723,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <span class="amount">Tk180</span>
                                     <h3>Rui (1kg+-)</h3>
@@ -743,7 +740,7 @@
                                     <div class="appsBtn">
                                         <div class="cartOverlayIn">
                                             <ul>
-                                                <li>                                                         
+                                                <li>
                                                     <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
@@ -753,7 +750,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>                        
+                                </div>
                                 <div class="appsTextBox">
                                     <span class="amount">Tk300</span>
                                     <h3>Hilsa (1kg+-)</h3>
@@ -809,7 +806,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="paginationBox">
         <div class="container">
             <nav aria-label="Page navigation example">
@@ -842,8 +839,6 @@
     
 <p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
 
-<?php
-	include "inclueds_front/footer_common.php";
-	include "inclueds_front/footer_link.php"; 
-?>
+{% include "inclueds_front/footer_common.html" %}
+{% include "inclueds_front/footer_link.html" %}
 

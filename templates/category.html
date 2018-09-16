@@ -1,0 +1,72 @@
+{% load static %}
+{% include "inclueds_front/head.html" %}
+{% include "inclueds_front/navigation.html" %}
+<style type="text/css">
+    .img1 {
+        background-image: url({% static 'images/content/bgImg.jpg' %});
+    }
+</style>
+
+<!--===================================-->
+<!--=========== BREADCRUMBS ===========-->
+<!--===================================-->
+
+<div class="breadBox img1">
+    <div class="container">
+        <div class="breadBoxIn">
+            <h2>{{ title }}</h2>
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
+                <li>{{ title }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--===================================-->
+<!--============= PRODUCT =============-->
+<!--===================================-->
+
+
+<!--===================================-->
+<!--============= PRODUCT  ============-->
+<!--===================================-->
+
+<div class="shopCat pTopbtm60">
+    <div class="container">
+        <div class="titleBox">
+            <h2>Shop by Categories: {{ title }}</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for c in cats %}
+                <div class="col-md-2 col-sm-2 col-xs-6">
+                    <div class="shopCatItem">
+                        <a href="{% url 'products' name=c.name %}">
+                            <div class="shopImg">
+                                {% if c.image %}
+                                    <img src="{{ c.image.url }}" alt="">
+                                {% else %}
+
+                                {% endif %}
+                            </div>
+                            <p>{{ c.name }}</p>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->
+
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+{% include "inclueds_front/footer_common.html" %}
+{% include "inclueds_front/footer_link.html" %}
+

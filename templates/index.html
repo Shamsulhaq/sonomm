@@ -206,12 +206,14 @@
                 <div class="col-md-8 col-sm-12 col-xs-12">
                     <div class="tab-content">
 
-                        <div id="{{ cat.name }}" class="tab-pane fade in active">
+                        <div id="fruits" class="tab-pane fade in active">
                             <div class="productBoxIn">
                                 <div class="prdctRgtBox">
                                     <div class="row">
                                         {% for prd in orproducts %}
+
                                             {% include 'product/product.html' %}
+
                                         {% endfor %}
 
                                     </div>
@@ -241,7 +243,7 @@
             {% for c in cat %}
                 <div class="col-md-2 col-sm-2 col-xs-6">
                     <div class="shopCatItem">
-                        <a href="#">
+                        <a href="{% url 'category' name=c.name %}">
                             <div class="shopImg">
                                 <img src="{{ c.image.url }}" alt="">
                             </div>
@@ -285,8 +287,10 @@
                                     <div class="row">
                                         {% for prd in products %}
                                             {% if prd.is_newAriavle %}
-                                            {% include 'product/product.html' %}
+                                                {% include 'product/product.html' %}
                                             {% endif %}
+                                            {% empty %}
+                                            <h2>Product Not Available</h2>
                                         {% endfor %}
 
                                     </div>
@@ -312,7 +316,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-md-12">
                         <div class="bigOfrLeft">
-                            <img src="media/images/content/big_offer.png" alt="">
+                            <img src="{% static 'images/content/big_offer.png' %}" alt="">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-md-12">
@@ -335,7 +339,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-md-12">
                         <div class="bigOfrLeft">
-                            <img src="media/images/content/big_offer.png" alt="">
+                            <img src="{% static 'images/content/big_offer.png' %}" alt="">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-md-12">

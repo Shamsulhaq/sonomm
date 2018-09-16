@@ -1,7 +1,7 @@
 <!--===================================-->
 <!--============== HEADER =============-->
 <!--===================================-->
-{% load static%}
+{% load static %}
 <header class="header">
     <div class="headerTop">
         <div class="container">
@@ -54,7 +54,8 @@
                                 {#                                </ul>#}
                             </li>
                             <li>
-                                <a href="#"><span></span><img class="countryImg" src="{% static 'images/content/english.png' %}">English</a>
+                                <a href="#"><span></span><img class="countryImg"
+                                                              src="{% static 'images/content/english.png' %}">English</a>
                                 {#                                <ul class="subDrop lastDrop">#}
                                 {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/bangladesh.png">Bangla</a></li>#}
                                 {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/english.png">English</a></li>#}
@@ -72,12 +73,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4">
-                    <a class="logo" href="{% url 'index' %}"><img src="{% static "images/content/Sonomm-Logo-Design5.png" %}" alt="logo img"></a>
+                    <a class="logo" href="{% url 'index' %}"><img
+                            src="{% static "images/content/Sonomm-Logo-Design5.png" %}" alt="logo img"></a>
                 </div>
                 <div class="col-md-4 col-sm-8">
                     <div class="hdrSerchBox">
-                        <form class="searchForm" action="#" method="get">
-                            <input class="text" type="search" placeholder="Search"/>
+                        <form class="searchForm"  action="{% url 'search' %}" method="get">
+                            <input class="text" name="search" type="search" value="{{ request.GET.search }}" placeholder="Search"/>
                             <span>
                                 <input class="submit" type="submit" value="Submit"/>
                                 <i class="fas fa-search"></i>
@@ -490,75 +492,54 @@
                 {#                <a class="openCloseBtn" href="JavaScript:void(0);"><img src="media/images/content/openClose.png" alt="none"></a>#}
                 <ul class="mainMenu">
                     <li>
-                        <a href="organic">Organic <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
+                        <a href="{% url 'category' name="Organic" %}">Organic <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
                         <ul class="mainManuIn">
-                            <li><a href="">Fruits</a></li>
-                            <li><a href="">Vegetables</a></li>
-                            <li><a href="">Fishes</a></li>
-                            <li><a href="#">Common Foods</a></li>
-                            <li><a href="#">Meat</a></li>
-                            <li><a href="#">Dairy Products</a></li>
-                            <li><a href="#">Baby Foods</a></li>
-                            <li><a href="#">Pet Food</a></li>
-                            <li><a href="#">Fertilizer</a></li>
+                            <li><a href="{% url 'products' name='Fruits' %}">Fruits</a></li>
+                            <li><a href="{% url 'products' name='Vegetables' %}">Vegetables</a></li>
+                            <li><a href="{% url 'products' name='Fishes' %}">Fishes</a></li>
+                            <li><a href="{% url 'products' name='Common Foods' %}">Common Foods</a></li>
+                            <li><a href="{% url 'products' name='Meat' %}">Meat</a></li>
+                            <li><a href="{% url 'products' name='Dairy Products' %}">Dairy Products</a></li>
+                            <li><a href="{% url 'products' name='Baby Foods' %}">Baby Foods</a></li>
+                            <li><a href="{% url 'products' name='Fruits' %}">Pet Food</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Educational <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
+                        <a href="{% url 'category' name="Educational" %}">Educational <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
                         <ul class="mainManuIn">
-                            <li><a href="#">Toys</a></li>
-                            <li><a href="#">Books</a></li>
+                            <li><a href="{% url 'products' name='E-Toys' %}">E-Toys</a></li>
+                            <li><a href="{% url 'products' name='Books' %}">Books</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Kids <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
+                        <a href="{% url 'category' name="Kids" %}">Kids <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
                         <ul class="mainManuIn">
-                            <li><a href="#">Clothing</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Toys</a></li>
-                            <li><a href="#">Footwears</a></li>
-                            <li><a href="#">School Accessories</a></li>
-                        </ul>
-                    </li>
-                    {#                    <li>#}
-                    {#                        <a href="homeAndLiving">Home &amp; Living <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>#}
-                    {#                        <ul class="mainManuIn">#}
-                    {#                            <li><a href="homeAndLiving #001">Bedding</a></li>#}
-                    {#                            <li><a href="#">Furniture</a></li>#}
-                    {#                            <li><a href="#">Lighting</a></li>#}
-                    {#                            <li><a href="#">Kitchen &amp; Dining</a></li>#}
-                    {#                            <li><a href="#">Home Fixtures &amp; Repairs</a></li>#}
-                    {#                            <li><a href="#">Bathroom Accessories</a></li>#}
-                    {#                            <li><a href="#">Outdoor &amp; Garden</a></li>#}
-                    {#                            <li><a href="#">Home Storage Supplies</a></li>#}
-                    {#                            <li><a href="#">Home Decor</a></li>#}
-                    {#                        </ul>#}
-                    {#                    </li>#}
-                    {#                    <li>#}
-                    {#                        <a href="dailyNeeds">Daily Needs <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>#}
-                    {#                        <ul class="mainManuIn">#}
-                    {#                            <li><a href="#">Lighting  &amp; Bulbs</a></li>#}
-                    {#                            <li><a href="#">Fans</a></li>#}
-                    {#                            <li><a href="#">Tools  &amp; Hardware</a></li>#}
-                    {#                            <li><a href="#">Switch,Socket, &amp; Multiplug</a></li>#}
-                    {#                            <li><a href="#">Pest Contorl</a></li>#}
-                    {#                            <li><a href="#">Solar Product</a></li>#}
-                    {#                        </ul>#}
-                    {#                    </li>#}
-                    <li>
-                        <a href="#">exclusive <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="mainManuIn">
-                            <li><a href="#">gadgets</a></li>
-                            <li><a href="#">educational</a></li>
-                            <li><a href="#">smart home</a></li>
+                            <li><a href="{% url 'products' name='Clothing' %}">Clothing</a></li>
+                            <li><a href="{% url 'products' name='Accessories' %}">Accessories</a></li>
+                            <li><a href="{% url 'products' name='Toys' %}">Toys</a></li>
+                            <li><a href="{% url 'products' name='Footwears' %}">Footwears</a></li>
+                            <li><a href="{% url 'products' name='School Accessories' %}">School Accessories</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">gifts <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
+                        <a href="{% url 'category' name="Exclusive" %}">exclusive <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
+                        <ul class="mainManuIn">
+                            <li><a href="{% url 'products' name='Gadgets' %}">gadgets</a></li>
+                            <li><a href="{% url 'products' name='Educational' %}">educational</a></li>
+                            <li><a href="{% url 'products' name='Smart Home' %}">smart home</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' name="Gifts" %}">gifts <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
                         <ul class="mainManuIn last">
-                            <li><a href="#">wooden gifts</a></li>
-                            <li><a href="#">leather gifts</a></li>
-                            <li><a href="#">metal gifts</a></li>
+                            <li><a href="{% url 'products' name='Leather Gifts' %}">leather gifts</a></li>
+                            <li><a href="{% url 'products' name='Wooden Gifts' %}">wooden gifts</a></li>
+                            <li><a href="{% url 'products' name='Metal Gifts' %}">metal gifts</a></li>
                         </ul>
                     </li>
                     <li>
