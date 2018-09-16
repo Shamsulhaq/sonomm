@@ -18,6 +18,8 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
+    def get_category_main(self):
+        return self.mainCat.name
 
 
 # Create Product Model here.
@@ -49,6 +51,8 @@ class ProductBasic(models.Model):
         discubt = int(dis)
         return discubt
 
+    def get_category(self):
+        return self.category.name
 
 
     @property
@@ -57,11 +61,8 @@ class ProductBasic(models.Model):
 
 
 class ProductGallery(models.Model):
-    product = models.OneToOneField(ProductBasic, on_delete=models.CASCADE)
-    image2 = models.ImageField(upload_to='products/Gallery', blank=True)
-    image3 = models.ImageField(upload_to='products/Gallery', blank=True)
-    image4 = models.ImageField(upload_to='products/Gallery', blank=True)
-    image5 = models.ImageField(upload_to='products/Gallery', blank=True)
+    product = models.ForeignKey(ProductBasic, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='products/Gallery', blank=True)
 
     def __str__(self):
         return self.product.title

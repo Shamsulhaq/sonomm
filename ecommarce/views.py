@@ -2,7 +2,7 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
-from ecommarce.product_model import ProductBasic, SubCategory, Category
+from ecommarce.product_model import ProductBasic, SubCategory, Category,ProductGallery
 
 
 def index(request):
@@ -77,3 +77,18 @@ def search(request):
         "title": "Search Result",
     }
     return render(request, 'search_result.html', context)
+
+
+def single_product(request,slug):
+    product = get_object_or_404(ProductBasic,slug=slug)
+    gallery= ProductGallery.objects.filter(product = product.id)
+    name = product.get_category()
+    relateds = ProductBasic.objects.order_by('-timestamp').filter(category__name=name)
+    context = {
+        'product':product,
+        'gallery':gallery,
+        'relateds':relateds
+
+    }
+
+    return render(request, 'product_inner.html', context)

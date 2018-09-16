@@ -4,22 +4,22 @@
 <!--===================================-->
 <!--=========== BREADCRUMBS ===========-->
 <!--===================================-->
-    
+
 <div class="breadBox breadIn">
     <div class="container">
         <div class="breadBoxIn">
             <h2>Bad Girl long sleve shirt</h2>
             <ul>
-                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
-                <li>Bad Girl long sleve shirt</li>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
+                <li>{{ product.name }}</li>
             </ul>
         </div>
     </div>
-</div>    
-    
+</div>
+
 <!--===================================-->
 <!--========== PRODUCT INNER ==========-->
-<!--===================================--> 
+<!--===================================-->
 
 <div class="productInnerBox pTopbtm60">
     <div class="container">
@@ -28,95 +28,109 @@
                 <div class="col-md-8">
                     <div class="prdctInnrLeft">
                         <div class="smallImg">
-                            <ul  id="gallery_01">
+                            <ul id="gallery_01">
+                                {% for img in gallery %}
+                                    <li>
+                                        <a class="elevatezoom-gallery active" data-update=""
+                                           data-image="{{ img.image.url }}" data-zoom-image="{{ img.image.url }}"
+                                           href="#">
+                                            <img src="{{ img.image.url }}" alt="">
+                                        </a>
+
+                                    </li>
+                                {% empty %}
+
+                                {% endfor %}
                                 <li>
-                                    <a class="elevatezoom-gallery active" data-update="" data-image="media/images/content/small1.jpg" data-zoom-image="media/images/content/small1.jpg" href="#">
-                                    <img src="media/images/content/small1.jpg" alt="">
+                                    <a class="elevatezoom-gallery active" data-update=""
+                                       data-image="{{ product.image.url }}" data-zoom-image="{{ product.image.url }}"
+                                       href="#">
+                                        <img src="{{ product.image.url }}" alt="">
                                     </a>
-                                    
+
                                 </li>
-                                <li>
-                                    <a class="elevatezoom-gallery" data-update="" data-image="media/images/content/small2.jpg" data-zoom-image="media/images/content/small2.jpg" href="#">
-                                    <img src="media/images/content/small2.jpg" alt="">
-                                    </a>                                    
-                                </li>
-                                <li>
-                                    <a class="elevatezoom-gallery" data-update="" data-image="media/images/content/small1.jpg" data-zoom-image="media/images/content/small1.jpg" href="#">
-                                    <img src="media/images/content/small1.jpg" alt="">
-                                    </a>
-                                    
-                                </li>
-                            </ul>                            
-                            <div class="videoBtn">
-                                <a href="#dressVideo" data-fancybox="video">
-                                    <img src="media/images/content/videoBtn.png" alt=""/>
-                                    <div id="dressVideo" class="commnVdo">
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3I-NokcLrwk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                    </div>
-                                </a>
-                            </div>
+
+                            </ul>
+                            {#                            <div class="videoBtn">#}
+                            {#                                <a href="#dressVideo" data-fancybox="video">#}
+                            {#                                    <img src="{{ product.image.url }}" alt=""/>#}
+                            {#                                    <div id="dressVideo" class="commnVdo">#}
+                            {#                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3I-NokcLrwk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>#}
+                            {#                                    </div>#}
+                            {#                                </a>#}
+                            {#                            </div>#}
                         </div>
                         <div class="bigImg">
                             <div class="bigImgBox">
-                                <img id="zoom_03" data-name="product_image" src="media/images/content/small2.jpg" data-zoom-image="media/images/content/small2.jpg"/ alt="">
+                                <img id="zoom_03" data-name="product_image" src="{{ product.image.url }}"
+                                     data-zoom-image="{{ product.image.url }}"/ alt="">
                             </div>
                         </div>
                     </div>
-                </div>                   
-           
+                </div>
+
                 <div class="col-md-4">
                     <div class="prdctSideBar">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="sidebarTop">
-                                    <h2>Bad Girl long sleve shirt</h2>
-                                    <span>ID: cxv613w41</span>
+                                    <h2>{{ product.name }}</h2>
+                                    <span>ID: sonomm{{ product.id }}</span>
                                     <div class="ratingBox">
                                         <ul class="ratingStar">
                                             <li><i class="fas fa-star"></i></li>
                                             <li><i class="far fa-star"></i></li>
                                             <li><i class="far fa-star"></i></li>
                                             <li><i class="far fa-star"></i></li>
-                                        </ul>                                        
+                                        </ul>
                                         <div class="ratingPop">
                                             <div class="ratingItem">
                                                 <h5>4.3 out of 5 stars</h5>
                                                 <ul>
                                                     <li>
                                                         <a href="#">5 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span style="background-color:#bd0e32;width: 70%;"></span></a>
+                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
+                                                                style="background-color:#bd0e32;width: 70%;"></span></a>
                                                         <span>64%</span>
                                                     </li>
                                                     <li>
                                                         <a href="#">4 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span style="background-color:#bd0e32;width: 50%;"></span></a>
+                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
+                                                                style="background-color:#bd0e32;width: 50%;"></span></a>
                                                         <span>50%</span>
                                                     </li>
                                                     <li>
                                                         <a href="#">3 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span style="background-color:#bd0e32;width: 30%;"></span></a>
+                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
+                                                                style="background-color:#bd0e32;width: 30%;"></span></a>
                                                         <span>30%</span>
                                                     </li>
                                                     <li>
                                                         <a href="#">2 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span style="background-color:#bd0e32;width: 15%;"></span></a>
+                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
+                                                                style="background-color:#bd0e32;width: 15%;"></span></a>
                                                         <span>15%</span>
                                                     </li>
                                                     <li>
                                                         <a href="#">1 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span style="background-color:#bd0e32;width: 9%;"></span></a>
+                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
+                                                                style="background-color:#bd0e32;width: 9%;"></span></a>
                                                         <span>9%</span>
                                                     </li>
                                                 </ul>
                                                 <p>All 1,067 reviews</p>
                                             </div>
                                         </div>
-                                         <div id="myModal10" class="modal" data-easein="bounceIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div id="myModal10" class="modal" data-easein="bounceIn" tabindex="-1"
+                                             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                        <p><i class="fas fa-thumbs-up"></i> You have successfully rated this product. Thanks for your response.</p>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">×
+                                                        </button>
+                                                        <p><i class="fas fa-thumbs-up"></i> You have successfully rated
+                                                            this product. Thanks for your response.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,78 +141,28 @@
                             <div class="col-md-12">
                                 <div class="saveBox">
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <h2>$108.00</h2>
+                                        <h2>BTD {{ product.price }}</h2>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <span>Save 20%</span>
+                                        <span>Save {{ product.get_discunt }} %</span>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <div class="clrSizeBox">
-                                    <div class="col-md-8 col-sm-8 col-xs-8">                                   
-                                        <div class="clrBox">
-                                            <form action="#">
-                                                <label>Color: </label><br />
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="product_color" value="white" checked> White
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="product_color" value="red"> Red
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="product_color" value="blue"> Blue
-                                                </label>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-4">                                    
-                                        <div class="sizeBox">
-                                            <form action="#">
-                                                <label>Size:</label>
-                                                <select name="product_size" class="form-control input-sm">
-                                                    <option>S</option>
-                                                    <option>M</option>
-                                                    <option>L</option>
-                                                </select>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="clrSizeBox">                                  
-                                    <div class="quantity">
-                                        <label>Quantity:</label>                                    
-                                        <form action="#">
-                                            <div id="field1">
-                                                <button type="button" id="sub" class="sub">-</button>
-                                                <input type="number" id="1" value="1" min="0" max="10" />
-                                                <button type="button" id="add" class="add">+</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="clrSizeBox">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, autem, voluptatibus quo expedita cum iusto saepe laborum adipisci aut maiores itaque fuga velit suscipit non beatae fugit totam praesentium possimus.</p>
+                                    <p>{{ product.sortDec }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="sideBarFtr">
                             <div class="sideBarFtrTop">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6 offset-0">
-                                        <button type="button" class="btn"><i class="fas fa-gift"></i>Make a gift</button>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6 offset-0">
-                                        <button type="button" class="btn"><i class="fas fa-heart"></i>Favourite</button>
-                                    </div>
-                                    <div class="col-md-12 offset-0">                                    
-                                        <input name="product_price" value="180" type="hidden" />
-                                        <input name="product_id" value="12" type="hidden" />
-                                        <button type="button" class="sc-add-to-cart btn marTop20"><i class="fas fa-cart-plus"></i>add to cart</button>
+
+                                    <div class="col-md-12 offset-0">
+                                        <button type="button" class="sc-add-to-cart btn marTop20"><i
+                                                class="fas fa-cart-plus"></i>add to cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -207,83 +171,50 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="prdctTabing pTopbtm60">
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-md-12">
                     <div class="prdctTabLeft">
                         <h5>Info box</h5>
-                        <p>If you order more than 2 products or in value of more than 100$ you get free shipping anywhere in the world.</p>
+                        <p>If you order more than 2 products or in value of more than BDT 5000 you get free shipping
+                            anywhere in the Dhaka,Bangladesh.</p>
                     </div>
                 </div>
+                {#       for Details       #}
                 <div class="col-md-8 col-sm-8 col-md-12">
-                    <div class="prdctTabRgt">                        
+                    <div class="prdctTabRgt">
                         <div class="productInnerTab">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#menu1">Details</a></li>
-                                <li><a data-toggle="tab" href="#menu2">Size guide</a></li>
                                 <li><a data-toggle="tab" href="#menu3">Comments</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="menu1" class="tab-pane fade in active">
                                     <div class="prdtInnerCont">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, autem, voluptatibus quo expedita cum iusto saepe laborum adipisci aut maiores itaque fuga velit suscipit non beatae fugit totam praesentium possimus.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, autem, voluptatibus quo expedita cum iusto saepe laborum adipisci aut maiores itaque fuga velit suscipit non beatae fugit totam praesentium possimus.</p>
+                                        <p>{{ product.description }}</p>
                                     </div>
                                 </div>
-                                <div id="menu2" class="tab-pane fade">
-                                    <div class="prdtInnerCont">
-                                        <table class="table table-bordered text-center">
-                                            <tbody>
-                                                <tr class="fontproximabold">
-                                                    <td>size</td>
-                                                    <td>us</td>
-                                                    <td>pant size inches</td>
-                                                    <td>unisex</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>xsmall</td>
-                                                    <td>0/2</td>
-                                                    <td>24-26</td>
-                                                    <td rowspan="2">xs-s<br>size 1</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>small</td>
-                                                    <td>4/6</td>
-                                                    <td>27-28</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>medium</td>
-                                                    <td>8/10</td>
-                                                    <td>29-30</td>
-                                                    <td rowspan="2">ml-l<br>size 2</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>large</td>
-                                                    <td>12</td>
-                                                    <td>31-32</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div id="menu3" class="tab-pane fade">                                    
+                                <div id="menu3" class="tab-pane fade">
                                     <div class="prdtInnerCont">
                                         <form action="#">
                                             <div class="row">
-                                                <div class="col-md-4">                    
+                                                <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input class="form-control" id="usr" placeholder="Name" type="text">
+                                                        <input class="form-control" id="usr" placeholder="Name"
+                                                               type="text">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input class="form-control" id="email" placeholder="Email" type="email">
+                                                        <input class="form-control" id="email" placeholder="Email"
+                                                               type="email">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input class="form-control" id="telNo" placeholder="Phone" type="tel">
+                                                        <input class="form-control" id="telNo" placeholder="Phone"
+                                                               type="tel">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -302,357 +233,31 @@
                 </div>
             </div>
         </div>
-        
-        <div class="alsoLove">
-            <div class="container">
-                <h3>You'll also love</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="loveItem">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="loveImg">
-                                        <img src="media/images/content/big_offer.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="loveCont">
-                                        <div class="sidebarTop">
-                                            <h2>New! Leather Bag</h2>
-                                            <span>ID: cxv613w41</span>                                                
-                                            <ul class="ratingStar">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quas laborum est illum nemo. Delectus, quisquam, ipsa? Delectus at non dolore ut eius autem minus. Laudantium, corporis magnam at maiores.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="loveCart">
-                                        <div class="saveBox">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                                    <h2>$108.00</h2>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                                    <span>Save 20%</span>
-                                                </div>
-                                            </div>
-                                            <div class="clrSizeBox">                                 
-                                                <div class="clrBox">
-                                                    <form action="#">
-                                                        <label>Color: </label><br>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="white" type="radio"> White
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="red" type="radio"> Red
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="blue" type="radio"> Blue
-                                                        </label>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="sideBarFtr">
-                                                <div class="sideBarFtrTop">
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                                            <a href="#" class="btn"><i class="fas fa-align-left"></i>read more</a>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                                            <input name="product_price" value="180" type="hidden" />
-                                                            <input name="product_id" value="12" type="hidden" />
-                                                            <button type="button" class="sc-add-to-cart btn"><i class="fas fa-cart-plus"></i>add to cart</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p>&nbsp;</p>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="loveItem">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="loveImg">
-                                        <img src="media/images/content/big_offer.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="loveCont">
-                                        <div class="sidebarTop">
-                                            <h2>New! Leather Bag</h2>
-                                            <span>ID: cxv613w41</span>                                                
-                                            <ul class="ratingStar">
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, quas laborum est illum nemo. Delectus, quisquam, ipsa? Delectus at non dolore ut eius autem minus. Laudantium, corporis magnam at maiores.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="loveCart">
-                                        <div class="saveBox">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                                    <h2>$108.00</h2>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                                    <span>Save 20%</span>
-                                                </div>
-                                            </div>
-                                            <div class="clrSizeBox">                                 
-                                                <div class="clrBox">
-                                                    <form action="#">
-                                                        <label>Color: </label><br>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="white" type="radio"> White
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="red" type="radio"> Red
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input name="product_color" value="blue" type="radio"> Blue
-                                                        </label>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="sideBarFtr">
-                                                <div class="sideBarFtrTop">
-                                                    <div class="row">
-                                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                                            <a href="#" class="btn"><i class="fas fa-align-left"></i>read more</a>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                                            <input name="product_price" value="180" type="hidden" />
-                                                            <input name="product_id" value="12" type="hidden" />
-                                                            <button type="button" class="sc-add-to-cart btn"><i class="fas fa-cart-plus"></i>add to cart</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+
         <div class="learningBox pTopbtm60">
             <div class="learnApp">
                 <div class="container">
                     <h3>Related products</h3>
                     <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="learningApps">
-                                <div class="appsImg">
-                                    <img src="media/images/content/small2.jpg" alt="">
-                                    <div class="appsOverlay">
-                                        <div class="appsBtn">
-                                        <div class="cartOverlayIn">
-                                            <ul>
-                                                <li>                                                         
-                                                    <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                                </li>
-                                                <li><a href="#prdct9" data-fancybox="gallery2"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                                <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                                <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                            </ul>
-                                            
-                                            <div id="prdct9" class="prodctPop organic">
-                                                <div class="row">
-                                                    <div class="col-md-5 col-sm-5 col-xs-12">
-                                                        <div class="popImgBox">
-                                                            <img src="media/images/content/small2.jpg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                                        <div class="popDetails">                                                        
-                                                            <div class="prdctSideBar">
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="sidebarTop">
-                                                                            <h2>Libby Off The Shoulder Frill Crop Top</h2>
-                                                                            <span>TK5000</span>
-                                                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="clrSizeBox">
-                                                                            <div class="col-md-8 col-sm-8 col-xs-8">
-                                                                                <div class="clrBox">
-                                                                                    <form action="#">
-                                                                                        <label>Color: </label><br />
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio" name="product_color" value="white" checked> White
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio" name="product_color" value="red"> Red
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio" name="product_color" value="blue"> Blue
-                                                                                        </label>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4 col-sm-4 col-xs-4">                                    
-                                                                                <div class="sizeBox">
-                                                                                    <form action="#">
-                                                                                        <label>Size:</label>
-                                                                                        <select name="product_size" class="form-control input-sm">
-                                                                                            <option>S</option>
-                                                                                            <option>M</option>
-                                                                                            <option>L</option>
-                                                                                        </select>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <div class="clrSizeBox">                                  
-                                                                            <div class="quantity">
-                                                                                <label>Quantity:</label>                                    
-                                                                                <form action="#">
-                                                                                    <div id="field1">
-                                                                                        <button type="button" id="sub" class="sub">-</button>
-                                                                                        <input type="number" id="1" value="1" min="0" max="10" />
-                                                                                        <button type="button" id="add" class="add">+</button>
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <button type="button" class="btn marTop20"><i class="fas fa-cart-plus"></i> add to cart</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>                        
-                                    <div class="appsTextBox">
-                                        <h3>Libby Off The Shoulder Frill Crop Top</h3>
-                                        <span class="amount">5000Tk</span>
-                                        <div class="product-options">
-                                            <p><b>SIZES</b></p>
-                                            <span>XS, S, M, L, XL, XXL</span>
-                                            <p><b>COLORS</b></p>
-                                            <div class="colors">
-                                                <span style="background-color:#6e8cd5"></span>
-                                                <span style="background-color:#f56060"></span>
-                                                <span style="background-color:#44c28d"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="learningApps">
-                                <div class="appsImg">
-                                    <img src="media/images/content/small2.jpg" alt="">
-                                    <div class="appsOverlay">
-                                        <div class="appsBtn">
-                                            <div class="cartOverlayIn">
-                                                <ul>
-                                                    <li>                                                         
-                                                        <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                                    <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                                    <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>                        
-                                    <div class="appsTextBox">
-                                        <h3>Libby Off The Shoulder Frill Crop Top</h3>
-                                        <span class="amount">5000Tk</span>
-                                        <div class="product-options">
-                                            <p><b>SIZES</b></p>
-                                            <span>XS, S, M, L, XL, XXL</span>
-                                            <p><b>COLORS</b></p>
-                                            <div class="colors">
-                                                <span style="background-color:#6e8cd5"></span>
-                                                <span style="background-color:#f56060"></span>
-                                                <span style="background-color:#44c28d"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="learningApps">
-                                <div class="appsImg">
-                                    <img src="media/images/content/small2.jpg" alt="">
-                                    <div class="appsOverlay">
-                                        <div class="appsBtn">
-                                            <div class="cartOverlayIn">
-                                                <ul>
-                                                    <li>                                                         
-                                                        <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                                    <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                                    <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>                        
-                                    <div class="appsTextBox">
-                                        <h3>Libby Off The Shoulder Frill Crop Top</h3>
-                                        <span class="amount">5000Tk</span>
-                                        <div class="product-options">
-                                            <p><b>SIZES</b></p>
-                                            <span>XS, S, M, L, XL, XXL</span>
-                                            <p><b>COLORS</b></p>
-                                            <div class="colors">
-                                                <span style="background-color:#6e8cd5"></span>
-                                                <span style="background-color:#f56060"></span>
-                                                <span style="background-color:#44c28d"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        {% for prd in relateds %}
+
+                            {% include 'product/product_slide.html' %}
+                        {% empty %}
+                            <h2>NO Related Products</h2>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 
-    
+
 <!--===================================-->
 <!--============= BACK TOP ============-->
-<!--===================================-->    
-    
+<!--===================================-->
+
 <p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
 
 {% include "inclueds_front/footer_common.html" %}
