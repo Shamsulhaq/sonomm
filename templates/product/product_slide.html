@@ -36,12 +36,22 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="sidebarTop">
-                                                <h2 data-name="product_name">{{ prd.name }}</h2>
-                                                <span>BDT:{{ prd.price }}</span>
-                                                <p>{{ prd.sortDec }}</p>
+                                                <h2 data-name="product_name">
+                                                    {{ prd.name }}</h2>
+                                                <span>BDT: {{ prd.price }}</span>
+                                                <h5>Unit: {{ prd.unit }}</h5>
+                                                <p>{{ prd.sortDec }}.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="clrSizeBox">
+
                                             </div>
                                         </div>
                                     </div>
+{#             For Order                       #}
                                     <button onclick="window.location.href='{% url 'index' %}'" type="button"
                                             class="btn marTop20">
                                         <i class="fas fa-cart-plus"></i>
@@ -54,8 +64,8 @@
                     </div>
                 </div>
             </div>
-            {% if prd.is_newAriavle %}
-                <span class="new">New</span>
+            {% if prd.is_Feature %}
+                <span class="new">Feature</span>
             {% endif %}
         </div>
         <div class="staricon">
@@ -64,7 +74,7 @@
                 <li><i class="far fa-star"></i></li>
             </ul>
             <span>BDT:{{ prd.price }}</span>
-            <p><a href="{% url 'single_product' slug=prd.slug %}">{{ prd.name }}rt</a></p>
+            <p><a href="{% url 'single_product' slug=prd.slug %}">{{ prd.name }} || {{ prd.unit }}</a></p>
         </div>
     </div>
 </li>

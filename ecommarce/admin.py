@@ -8,7 +8,7 @@ from .models import Order
 
 class ProductBasicAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'price', 'is_Feature', 'is_newAriavle', 'image']
-    search_fields = ['__str__', 'price', ]
+    search_fields = ['name', 'price','sortDec','description' ]
     # filter_vertical = ['phone']
     list_per_page = 15
     list_filter = ['category__mainCat', 'category', 'is_Feature', 'is_newAriavle']

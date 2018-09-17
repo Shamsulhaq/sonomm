@@ -76,65 +76,9 @@
                                 <div class="sidebarTop">
                                     <h2>{{ product.name }}</h2>
                                     <span>ID: sonomm{{ product.id }}</span>
-                                    <div class="ratingBox">
-                                        <ul class="ratingStar">
-                                            <li><i class="fas fa-star"></i></li>
-                                            <li><i class="far fa-star"></i></li>
-                                            <li><i class="far fa-star"></i></li>
-                                            <li><i class="far fa-star"></i></li>
-                                        </ul>
-                                        <div class="ratingPop">
-                                            <div class="ratingItem">
-                                                <h5>4.3 out of 5 stars</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">5 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
-                                                                style="background-color:#bd0e32;width: 70%;"></span></a>
-                                                        <span>64%</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">4 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
-                                                                style="background-color:#bd0e32;width: 50%;"></span></a>
-                                                        <span>50%</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">3 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
-                                                                style="background-color:#bd0e32;width: 30%;"></span></a>
-                                                        <span>30%</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">2 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
-                                                                style="background-color:#bd0e32;width: 15%;"></span></a>
-                                                        <span>15%</span>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">1 Stars</a>
-                                                        <a class="ratingPer" href="#myModal10" data-toggle="modal"><span
-                                                                style="background-color:#bd0e32;width: 9%;"></span></a>
-                                                        <span>9%</span>
-                                                    </li>
-                                                </ul>
-                                                <p>All 1,067 reviews</p>
-                                            </div>
-                                        </div>
-                                        <div id="myModal10" class="modal" data-easein="bounceIn" tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">×
-                                                        </button>
-                                                        <p><i class="fas fa-thumbs-up"></i> You have successfully rated
-                                                            this product. Thanks for your response.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <p>
+                                            <span>Unit: {{ product.unit }}</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -150,9 +94,11 @@
                             </div>
 
                             <div class="col-md-12">
+
                                 <div class="clrSizeBox">
                                     <p>{{ product.sortDec }}</p>
                                 </div>
+
                             </div>
                         </div>
                         <div class="sideBarFtr">
@@ -238,15 +184,20 @@
             <div class="learnApp">
                 <div class="container">
                     <h3>Related products</h3>
-                    <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
 
-                        {% for prd in relateds %}
+                        <ul>
+                            {% for prd in relateds %}
 
-                            {% include 'product/product_slide.html' %}
-                        {% empty %}
-                            <h2>NO Related Products</h2>
-                        {% endfor %}
+                                {% include 'product/product_slide.html' %}
+                            {% empty %}
+                                <p style="color: #ab0225;font-size: large"> No Related Products </p>
+
+                            {% endfor %}
+                        </ul>
+
                     </div>
+
                 </div>
             </div>
         </div>

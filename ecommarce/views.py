@@ -83,7 +83,7 @@ def single_product(request,slug):
     product = get_object_or_404(ProductBasic,slug=slug)
     gallery= ProductGallery.objects.filter(product = product.id)
     name = product.get_category()
-    relateds = ProductBasic.objects.order_by('-timestamp').filter(category__name=name)
+    relateds = ProductBasic.objects.filter(category__name=name).exclude(id =product.id)[:5]
     context = {
         'product':product,
         'gallery':gallery,

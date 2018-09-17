@@ -18,6 +18,7 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
+
     def get_category_main(self):
         return self.mainCat.name
 
@@ -25,11 +26,11 @@ class SubCategory(models.Model):
 # Create Product Model here.
 class ProductBasic(models.Model):
     name = models.CharField(max_length=200, help_text='Enter your Product Title')
-    category = models.ManyToManyField(SubCategory)
+    category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     regular_price = models.DecimalField(max_digits=9, decimal_places=2, default=100.00, blank=True, null=True)
     price = models.DecimalField(max_digits=9, decimal_places=2, default=100.00)
     quantity = models.PositiveIntegerField(default=1)
-    unit = models.PositiveIntegerField(default=1)
+    unit = models.CharField(help_text='Enter unity deviate by comma', max_length=200)
     sortDec = models.TextField(max_length=1000)
     description = models.TextField()
     image = models.ImageField(upload_to='products/thumbnail', blank=True)
@@ -46,14 +47,13 @@ class ProductBasic(models.Model):
     def __str__(self):
         return self.name
 
+    def get_category(self):
+        return self.category.name
+
     def get_discunt(self):
         dis = ((self.regular_price - self.price) / self.regular_price) * 100
         discubt = int(dis)
         return discubt
-
-    def get_category(self):
-        return self.category.name
-
 
     @property
     def title(self):

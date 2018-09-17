@@ -1,7 +1,9 @@
 <div class="col-md-3">
     <div class="prdtItem">
         <div class="prdtImg">
+        {% if prd.image %}
             <img src="{{ prd.image.url }}" alt="">
+        {% endif %}
             <div class="cartOverlay">
                 <div class="cartOverlayIn">
                     <ul>
@@ -28,8 +30,10 @@
                     <div class="row">
                         <div class="col-md-5 col-sm-5 col-xs-12">
                             <div class="popImgBox">
+                                {% if prd.image %}
                                 <img src="{{ prd.image.url }}"
                                      alt="">
+                                {% endif %}
                                     <p>{{ prd.get_discunt }} % Off</p>
 
                             </div>
@@ -42,7 +46,8 @@
                                             <div class="sidebarTop">
                                                 <h2 data-name="product_name">
                                                     {{ prd.name }}</h2>
-                                                <span>{{ prd.price }}</span>
+                                                <span>BDT: {{ prd.price }}</span>
+                                                <h5>Unit: {{ prd.unit }}</h5>
                                                 <p>{{ prd.sortDec }}.</p>
                                             </div>
                                         </div>
@@ -78,7 +83,7 @@
             </ul>
             <span>BDT:{{ prd.price }}</span>
             <span class="priceOvRgt">BDT:{{ prd.regular_price }}</span>
-            <p><a href="{% url 'single_product' slug=prd.slug %}">{{ prd.name }}</a></p>
+            <p><a href="{% url 'single_product' slug=prd.slug %}">{{ prd.name }} || {{ prd.unit }}</a></p>
         </div>
     </div>
 </div>
