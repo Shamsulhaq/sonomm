@@ -1,0 +1,82 @@
+{% load static %}
+{% include "inclueds_front/head.html" %}
+{% include "inclueds_front/navigation.html" %}
+
+<style type="text/css">
+    .img1 {
+        background-image: url({% static 'images/content/regBg.jpg' %});
+    }
+</style>
+
+<!--===================================-->
+<!--=========== BREADCRUMBS ===========-->
+<!--===================================-->
+
+<div class="breadBox img1">
+    <div class="container">
+        <div class="breadBoxIn">
+            <h2>Registration</h2>
+            <ul>
+                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
+                <li>Registration</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--===================================-->
+<!--========== registration ===========-->
+<!--===================================-->
+
+<div class="registrationBox pTopbtm60">
+    <div class="container">
+        <div class="regBoxIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="regTopInfo">
+                        <h3>Create Account</h3>
+                        <p>Please Register using account detail bellow.</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <form action="" method="POST">
+                        <div class="row">
+                        {% csrf_token %}
+                            {% for filed in form %}
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                                <div class="col-md-6">
+                                    {{ filed.label }}
+                                    {{ filed }}
+                                    <br>
+                                </div>
+                            {% empty %}
+                                <p>From filed not found</p>
+                            {% endfor %}
+                            <div class="col-md-12">
+                                <div class="loginBtn">
+                                    <button class="btn" type="submit">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--===================================-->
+<!--============= BACK TOP ============-->
+<!--===================================-->
+
+<p class="back-top backTop"><i class="fas fa-angle-up"></i></p>
+
+
+{% include "inclueds_front/footer_common.html" %}
+{% include "inclueds_front/footer_link.html" %}
+
+
+
