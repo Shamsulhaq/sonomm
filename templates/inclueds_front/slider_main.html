@@ -1,43 +1,30 @@
 {% load static %}
 <style type="text/css">
-    .slideBg1{background-image:url({% static 'images/content/slider1.png' %})}
-    .slideBg2{background-image:url({% static 'images/content/slider2.png' %})}
-    .slideBg3{background-image:url({% static 'images/content/slider3.png' %})}
+    {% for slid in slider %}
+
+    .slideBg{{ slid.id }}{background-image:url({{ slid.image_file.url }})}
+    {% empty %}
+    {% endfor %}
 
 </style>
 
 <!--===================================-->
 <!--============ TOP SLIDER ===========-->
 <!--===================================-->
-    
+
 <div class="topSlider">
     <ul>
-        <li class="slideItem slideBg1">
+        {% for slid in slider %}
+            <li class="slideItem slideBg{{ slid.id }}">
             <div class="container">
                 <div class="topCaption">
-                    <h2>Lorem Ipsum is simply dummy text</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <a class="btn">Read More</a>
+                    <h2>{{ slid.heading }}</h2>
+                    <p>{{ slid.sortDis }}</p>
+                    <a class="btn" href="{{ slid.buttonUrl }}">{{ slid.buttonText }}</a>
                 </div>
             </div>
         </li>
-        <li class="slideItem slideBg2">
-            <div class="container">
-                <div class="topCaption algnRgt">
-                    <h2>Lorem Ipsum is simply dummy text</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <a class="btn">Read More</a>
-                </div>
-            </div>
-        </li>
-        <li class="slideItem slideBg3">
-            <div class="container">
-                <div class="topCaption algnRgt">
-                    <h2>Lorem Ipsum is simply dummy text</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    <a class="btn">Read More</a>
-                </div>
-            </div>
-        </li>
+        {% empty %}
+        {% endfor %}
     </ul>
 </div>

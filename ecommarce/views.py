@@ -3,11 +3,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from ecommarce.product_model import ProductBasic, SubCategory, Category,ProductGallery
+from .slider_Model import Slider
 
 
 def index(request):
     orproducts = ProductBasic.objects.order_by('-timestamp').filter(category__mainCat__name='Organic')
     products = ProductBasic.objects.order_by('-timestamp')
+    slider   = Slider.objects.all()
     category = Category.objects.all()
     categorys = SubCategory.objects.filter(mainCat__name="Organic")
     paginator = Paginator(products, 8)  # Show 8 contacts per page
@@ -21,7 +23,8 @@ def index(request):
         'orproducts': orproducts,
         'products': products,
         'cats': categorys,
-        'cat': category
+        'cat': category,
+        'slider':slider
 
     }
     return render(request, 'index.html', context)

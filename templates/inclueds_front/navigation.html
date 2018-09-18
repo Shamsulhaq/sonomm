@@ -21,23 +21,29 @@
                 <div class="col-md-8">
                     <div class="accountBox">
                         <ul>
-                            {#                            <li><a href="#">Wish List (0)</a></li>#}
+                            {% if user.is_authenticated %}
+                                  <a class=" " href="{% url 'index' %}"><span><i class="fas fa-user"></i></span>{{ user.get_full_name }}</a> ||
+                                    <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
                             <li>
                                 <a class="login" href="#"><span><i class="fas fa-user"></i></span>My Account</a>
+                            {% endif %}
                                 <div class="loginBox">
-                                    <form>
+                                    <form action="{% url 'login' %}" method="POST">
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label>User Name</label>
-                                            <input type="email" class="form-control" placeholder="Email"
+                                            <input type="text" class="form-control" placeholder="User name"
                                                    name="username">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
                                             <input type="password" class="form-control" placeholder="Password"
-                                                   name="password">
+                                                   name="pwd">
                                         </div>
                                         <div class="loginBtn">
                                             <button class="btn" type="submit">Login</button>
+                                            <a href="{% url 'registration' %}"> Registration</a>
                                             {#                                            <p>Not a member? <a href="{% url 'registration' %}">Sign up now</a></p>#}
                                             <!--<p><a href="#">Forgot password?</a></p>-->
                                         </div>

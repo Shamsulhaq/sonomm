@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django import forms
-from .models import Customer
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -63,11 +62,3 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
 
-
-class CustomerForm(forms.ModelForm):
-    class Meta:
-        model = Customer
-
-        fields = (
-             'phone', 'address', 'gender'
-        )

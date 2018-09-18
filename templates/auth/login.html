@@ -15,10 +15,10 @@
 <div class="breadBox img1">
     <div class="container">
         <div class="breadBoxIn">
-            <h2>Registration</h2>
+            <h2>Log In Your Account</h2>
             <ul>
-                <li><a href="index"><i class="fas fa-home"></i> home</a></li>
-                <li>Registration</li>
+                <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
+                <li>Login</li>
             </ul>
         </div>
     </div>
@@ -34,30 +34,28 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="regTopInfo">
-                        <h3>Create Account</h3>
-                        <p>Please Register using account detail bellow.</p>
+                        <h3>Access Account</h3>
+                        <p>Login your using account detail bellow.</p>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <form action="" method="POST">
                         <div class="row">
-                        {% csrf_token %}
-                            {% for filed in form %}
-                                {% for error in field.errors %}
-                                    <p style="color: red">{{ error }}</p>
-                                {% endfor %}
-                                <div class="col-md-6">
-                                    {{ filed.label }}
-                                    {{ filed }}
-                                    <br>
-                                </div>
-                            {% empty %}
-                                <p>From filed not found</p>
-                            {% endfor %}
-                            <div class="col-md-12">
-                                <div class="loginBtn">
-                                    <button class="btn" type="submit">Register</button>
-                                </div>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input type="text" class="form-control" placeholder="User name"
+                                       name="username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password"
+                                       name="pwd">
+                            </div>
+                            <div class="loginBtn">
+                                <button class="btn" type="submit">Login</button>
+                                {#                                            <p>Not a member? <a href="{% url 'registration' %}">Sign up now</a></p>#}
+                                <!--<p><a href="#">Forgot password?</a></p>-->
                             </div>
                         </div>
                     </form>

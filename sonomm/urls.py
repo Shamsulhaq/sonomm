@@ -23,7 +23,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('auth_module.urls')),
+    path('user/', include('auth_module.urls'),),
     path('', include('ecommarce.urls')),
 ]
 
