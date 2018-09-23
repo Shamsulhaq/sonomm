@@ -1,9 +1,14 @@
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.template import Context
+from django.template.loader import render_to_string, get_template
 
+from ecommarce.forms import OrderForm
 from ecommarce.product_model import ProductBasic, SubCategory, Category, ProductGallery
 from .slider_Model import Slider
+from django.core.mail import EmailMessage
 
 
 def index(request):
@@ -36,7 +41,7 @@ def category(request, name):
         'cats': categorys,
         'title': name
     }
-    return render(request, 'category.html', context)
+    return render(request, 'category/category.html', context)
 
 
 def all_product(request, name):
@@ -59,7 +64,7 @@ def all_product(request, name):
         "title": name,
         "ptitle": cat
     }
-    return render(request, 'all_product.html', context)
+    return render(request, 'product/all_product.html', context)
 
 
 def search(request):
@@ -99,4 +104,67 @@ def single_product(request, slug):
 
 def allCategorys(request):
     category = Category.objects.all()
-    return render(request, 'mcategory.html', {'cats': category})
+    return render(request, 'category/mcategory.html', {'cats': category})
+
+
+# def getOrder(request, slug):
+#     product = get_object_or_404(ProductBasic, slug=slug)
+#     if request.method == 'POST':
+#         form = OrderForm(request.POST)
+#         if form.is_valid():
+#             instance = form.save(commit=False)
+#             instance.product = product
+#             instance.save()
+#             mail_subject = 'Received Order request'
+#             message = render_to_string('acc_active_email.html', {
+#                 'Customer_name': form.cleaned_data.get('name'),
+#                 'Customer_Phone': form.cleaned_data.get('phone'),
+#                 'Customer_Email': form.cleaned_data.get('email'),
+#                 'Customer_Address': form.cleaned_data.get('address'),
+#                 'Product': product.name,
+#                 'Available_in_Stock': product.is_stock
+#             })
+#             to_email = 'bmshamsulhaq65@gmail.com'
+#             email = EmailMessage(
+#                 mail_subject, message, to=[to_email]
+#             )
+#             email.send()
+#             return HttpResponse('Thanks you ')
+#
+#         return render(request, 'order.html', {"product": product, 'form': form})
+#
+#     return HttpResponse("Sorry Try Again")
+
+
+def getorder(request, slug):
+    product = get_object_or_404(ProductBasic, slug=slug)
+    form = OrderForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.product = product
+        instance.save()
+        mail_subject = 'Received Order request'
+        name = form.cleaned_data.get('name')
+        phone = form.cleaned_data.get('phone')
+        email = form.cleaned_data.get('email')
+        addr = form.cleaned_data.get('address')
+        prod = product.name
+        abl = product.is_stock
+        messa = {
+            'Customer_name': name,
+            'Customer_Phone': phone,
+            'Customer_Email': email,
+            'Customer_Address': addr,
+            'Product': prod,
+            'Available_in_Stock': abl,
+        }
+        message = get_template('mail/acc_active_email.html').render(messa)
+        to_email = 'bmshamsulhaq65@gmail.com'
+        email = EmailMessage(
+            mail_subject, message, to=[to_email]
+        )
+        email.content_subtype = 'html'
+        email.send()
+        return HttpResponse('Thanks you ')
+
+    return render(request, 'order.html', {"product": product, 'form': form})

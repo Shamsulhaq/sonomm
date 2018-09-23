@@ -16,7 +16,9 @@ Including another URLconf
 from django.urls import path
 from .views import(
     index, all_product,
-    category, search, single_product,allCategorys
+    category, search,
+    single_product,allCategorys,
+    getorder
 )
 
 urlpatterns = [
@@ -27,6 +29,7 @@ urlpatterns = [
     path('mcategory/', allCategorys, name='mcategory'),
     path('products/<name>', all_product, name='products'),
     path('product/<slug>', single_product, name='single_product'),
+    path('order/<slug>', getorder, name='order'),
     # /path('index/',Index.as_view(), name='index'),
 
 ]

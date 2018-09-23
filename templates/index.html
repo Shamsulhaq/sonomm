@@ -87,7 +87,8 @@
                         <div class="fantasyItem">
                             <div class="fantasyImg">
 
-                                <img style='object-fit: contain'  width="440 px" height="230 px" src="{{ prd.image.url }}" alt="">
+                                <img style='object-fit: contain' width="440 px" height="230 px"
+                                     src="{{ prd.image.url }}" alt="">
                             </div>
                             <div class="fantasyOffer">
                                 <span class="discount">off {{ prd.get_discunt }}%</span>
@@ -106,13 +107,15 @@
                                 <div class="cartOverlay">
                                     <div class="cartOverlayIn">
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
-                                                    class="cartIcon">Quick View</span></li>
-                                            <li><a href="{% url 'single_product' slug=prd.slug %}"><i
+                                            {% if prd.is_stock %}
+                                                <li><a href="{% url 'single_product' slug=prd.slug %}"><i
                                                     class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span>
                                             </li>
-                                            <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
-                                                    class="cartIcon">Comparison</span></li>
+                                            {% else %}<li><a href="{% url 'single_product' slug=prd.slug %}"><i
+                                                    class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span>
+                                            </li>
+                                            {% endif %}
+
                                         </ul>
                                         <h4>{{ prd.name }}</h4>
                                         <p>{{ prd.sortDec }}</p>
@@ -210,7 +213,8 @@
                         <div class="shopCatItem">
                             <a href="{% url 'category' name=c.name %}">
                                 <div class="shopImg">
-                                    <img style='height: 100%; width: 100%; object-fit: contain'  src="{{ c.image.url }}" alt="">
+                                    <img style='object-fit: contain' src="{{ c.image.url }}"
+                                         alt="">
                                 </div>
                                 <p>{{ c.name }}</p>
                             </a>

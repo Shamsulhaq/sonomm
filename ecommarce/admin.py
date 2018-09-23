@@ -3,9 +3,11 @@ from .product_model import (Category,
                             SubCategory,
                             ProductBasic,
                             ProductGallery,
+
                             )
 from .models import Order
 from .slider_Model import Slider
+
 
 
 # Register your models here.
@@ -39,11 +41,11 @@ admin.site.register(ProductGallery)
 
 
 class ProductOrderAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'coustomer_name', 'phone_number']
-    search_fields = ['__str__', 'coustomer_name']
+    list_display = ['__str__','name', 'phone','total_price','is_confirm','is_paid']
+    search_fields = ['__str__', 'name']
     # filter_vertical = ['phone']
     list_per_page = 15
-    list_filter = ['product__category']
+    list_filter = ['is_done','is_onprocess','is_confirm','is_paid','product__category']
 
     class Meta:
         Model = Order
