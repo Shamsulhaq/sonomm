@@ -534,21 +534,21 @@ li.subMenuTitle a:hover {
 }
 
 .mainMenu li a {
-    padding: 0 40px 0 ;
+    padding: 0 10px 0 ;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
     position: relative;
 }
 
-}
+
 .mainMenu li:last-child a {
-    padding-right: 120px;
-}
+    padding-right: 15px;
 }
 
+
 .mainMenu li a:hover {
-    color: #d21f44
+    color: #d21f44;
 }
 
 .mainManuIn {
@@ -621,7 +621,7 @@ ul.mainManuIn a:before {
     width: 15px;
     height: 29px;
     border: none;
-    background: url(media/images/content/arrows.png) no-repeat;
+    background: url('/static/images/content/arrows.png') no-repeat;
     text-indent: -10000px;
     cursor: pointer;
     position: absolute;
@@ -899,7 +899,7 @@ ul.mainManuIn a:before {
 /*==============================*/
 
 .fantasyBox {
-    background-image: url(media/images/content/fantasyBg.JPG);
+    background-image: url("/static/images/content/fantasyBg.JPG");
 }
 
 .fridayTitle {
@@ -914,7 +914,7 @@ ul.mainManuIn a:before {
     font-size: 45px;
     font-style: italic;
     display: inline-block;
-    background-image: url(media/images/content/lighting_img.png);
+    background-image: url('/static/images/content/lighting_img.png');
     background-repeat: repeat-x;
     -webkit-background-clip: text;
     animation: lighting 8s linear infinite;
@@ -1541,7 +1541,7 @@ ul.mainManuIn a:before {
 /*==============================*/
 .shopCat {
     padding-bottom: 30px;
-    background-image: url(media/images/content/shop_by_category.png);
+    background-image: url(static/images/content/shop_by_category.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -1714,7 +1714,7 @@ ul.mainManuIn a:before {
 /*======== Certificate  ========*/
 /*==============================*/
 .certificate {
-    background-image: url(media/images/content/sonomm_bg.png);
+    background-image: url('/static/images/content/sonomm_bg.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1766,7 +1766,7 @@ ul.mainManuIn a:before {
 .remarksBox {
     width: 100%;
     margin: 50px 0 60px;
-    background: url(media/images/content/inspiringBg.jpg);
+    background: url('/static/images/content/inspiringBg.jpg');
     background-repeat: repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -1941,7 +1941,7 @@ ul.mainManuIn a:before {
 .footer {
     padding: 40px 0 0;
     color: #fff;
-    background-image: url(media/images/content/footerBg.png);
+    background-image: url('/static/images/content/footerBg.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3710,7 +3710,7 @@ legend {
 }
 
 .selectSign {
-    background-image: url("media/images/content/mark.png");
+    background-image: url("/static/images/content/mark.png");
     background-size: cover;
     font-size: 25px;
     position: absolute;
