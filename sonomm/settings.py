@@ -26,6 +26,7 @@ SECRET_KEY = 'jll4_iej8lf2gr+kq(9_@*9u##tf*xp=01=*3e-8(d-uzn*ib1'
 DEBUG = True
 
 ALLOWED_HOSTS = ['http://shamsul65.pythonanywhere.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
