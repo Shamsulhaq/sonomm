@@ -14,10 +14,10 @@
 <div class="breadBox img1">
     <div class="container">
         <div class="breadBoxIn">
-            <h2>{{ title }}</h2>
+            <h2>All Categories</h2>
             <ul>
                 <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
-                <li>{{ title }}</li>
+                <li>All Categories</li>
             </ul>
         </div>
     </div>
@@ -35,7 +35,7 @@
 <div class="shopCat pTopbtm60">
     <div class="container">
         <div class="titleBox">
-            <h2>Shop by Categories: {{ title }}</h2>
+            <h2>Shop by Categories: All Categories </h2>
         </div>
     </div>
     <div class="container">
@@ -43,7 +43,7 @@
             {% for c in cats %}
                 <div class="col-md-2 col-sm-2 col-xs-6">
                     <div class="shopCatItem">
-                        <a href="{% url 'products' name=c.name %}">
+                        <a href="{% url 'category' name=c.name %}">
                             <div class="shopImg">
                                 {% if c.image %}
                                     <img style='object-fit: contain'  src="{{ c.image.url }}" alt="">

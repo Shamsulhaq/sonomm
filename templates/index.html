@@ -81,102 +81,51 @@
     </div>
     <div class="fantasyIn">
         <ul>
-            <li>
-                <div class="fantasyItem">
-                    <div class="fantasyImg">
-                        <img src="{% static 'images/content/offer_5.jpg' %}" alt="">
-                    </div>
-                    <div class="fantasyOffer">
-                        <span class="discount">off 30%</span>
-                        <span class="onsale">onsale</span>
-                        <span class="star"><i class="fas fa-star"></i> 34</span>
-                    </div>
-                    <div class="fantasyPrice">
-                        <p>500Tk</p>
-                    </div>
-                    <div class="fantasyHover">
-                        <div class="cartOverlay">
-                            <div class="cartOverlayIn">
-                                <ul>
-                                    <li>
-                                        <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                    <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                    <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                </ul>
-                                <h4>Lorem Ipsum is simply dummy</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            {% for prd in products %}
+                {% if prd.is_Friday %}
+                    <li>
+                        <div class="fantasyItem">
+                            <div class="fantasyImg">
+
+                                <img style='object-fit: contain'  width="440 px" height="230 px" src="{{ prd.image.url }}" alt="">
+                            </div>
+                            <div class="fantasyOffer">
+                                <span class="discount">off {{ prd.get_discunt }}%</span>
+                                {% if prd.is_stock %}
+                                    <span class="onsale">onsale</span>
+                                {% else %}
+                                    <span class="onsale">preorder</span>
+                                {% endif %}
+
+                                <span class="star"><i class="fas fa-star"></i> 5</span>
+                            </div>
+                            <div class="fantasyPrice">
+                                <p>{{ prd.price }}Tk</p>
+                            </div>
+                            <div class="fantasyHover">
+                                <div class="cartOverlay">
+                                    <div class="cartOverlayIn">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span
+                                                    class="cartIcon">Quick View</span></li>
+                                            <li><a href="{% url 'single_product' slug=prd.slug %}"><i
+                                                    class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-balance-scale"></i></a><span
+                                                    class="cartIcon">Comparison</span></li>
+                                        </ul>
+                                        <h4>{{ prd.name }}</h4>
+                                        <p>{{ prd.sortDec }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="fantasyItem">
-                    <div class="fantasyImg">
-                        <img src="{% static 'images/content/offer_3.jpg' %}" alt="">
-                    </div>
-                    <div class="fantasyOffer">
-                        <span class="discount">off 20%</span>
-                        <span class="onsale">onsale</span>
-                        <span class="star"><i class="fas fa-star"></i> 54</span>
-                    </div>
-                    <div class="fantasyPrice">
-                        <p>500Tk</p>
-                    </div>
-                    <div class="fantasyHover">
-                        <div class="cartOverlay">
-                            <div class="cartOverlayIn">
-                                <ul>
-                                    <li>
-                                        <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                    <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                    <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                </ul>
-                                <h4>Lorem Ipsum is simply dummy</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="fantasyItem">
-                    <div class="fantasyImg">
-                        <img src="{% static 'images/content/offer_6.jpg' %}" alt="">
-                    </div>
-                    <div class="fantasyOffer">
-                        <span class="discount">off 30%</span>
-                        <span class="onsale">onsale</span>
-                        <span class="star"><i class="fas fa-star"></i> 59</span>
-                    </div>
-                    <div class="fantasyPrice">
-                        <p>500Tk</p>
-                    </div>
-                    <div class="fantasyHover">
-                        <div class="cartOverlay">
-                            <div class="cartOverlayIn">
-                                <ul>
-                                    <li>
-                                        <button href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button><span class="cartIcon">Shopping Cart</span>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a><span class="cartIcon">Quick View</span></li>
-                                    <li><a href="#"><i class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span></li>
-                                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a><span class="cartIcon">Wishlist</span></li>
-                                    <li><a href="#"><i class="fas fa-balance-scale"></i></a><span class="cartIcon">Comparison</span></li>
-                                </ul>
-                                <h4>Lorem Ipsum is simply dummy</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+                    </li>
+                {% endif %}
+            {% empty %}
+            {% endfor %}
+
+
         </ul>
     </div>
 </div>
@@ -248,20 +197,20 @@
     <!--======== SHOP CATEGORIES ==========-->
     <!--===================================-->
 
-    <div class="shopCat pTopbtm60">
-        <div class="container">
+    <div class="shopCat pTopbtm60 " id="catMenuIn">
+        <div class="container ">
             <div class="titleBox">
                 <h2>Shop by Categories</h2>
             </div>
         </div>
-        <div class="container">
+        <div class="container ">
             <div class="row">
                 {% for c in cat %}
                     <div class="col-md-2 col-sm-2 col-xs-6">
                         <div class="shopCatItem">
                             <a href="{% url 'category' name=c.name %}">
                                 <div class="shopImg">
-                                    <img src="{{ c.image.url }}" alt="">
+                                    <img style='height: 100%; width: 100%; object-fit: contain'  src="{{ c.image.url }}" alt="">
                                 </div>
                                 <p>{{ c.name }}</p>
                             </a>
@@ -530,50 +479,50 @@
     <!--=========== CERTIFICATE ===========-->
     <!--===================================-->
 
-{#    <div class="certificate pTopbtm60">#}
-{#        <div class="container">#}
-{#            <div class="titleBox">#}
-{#                <h2>Food Certificate</h2>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-md-4 col-sm-4 col-xs-12">#}
-{#                    <div class="certBox">#}
-{#                        <div class="crtfictImg">#}
-{#                            <img src="{% static 'images/content/foodcert_1.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
-{#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
-{#                            been#}
-{#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-4 col-xs-12">#}
-{#                    <div class="certBox">#}
-{#                        <div class="crtfictImg">#}
-{#                            <img src="{% static 'images/content/foodcert_2.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
-{#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
-{#                            been#}
-{#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-4 col-xs-12">#}
-{#                    <div class="certBox">#}
-{#                        <div class="crtfictImg">#}
-{#                            <img src="{% static 'images/content/foodcert_1.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
-{#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
-{#                            been#}
-{#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="certificate pTopbtm60">#}
+    {#        <div class="container">#}
+    {#            <div class="titleBox">#}
+    {#                <h2>Food Certificate</h2>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="container">#}
+    {#            <div class="row">#}
+    {#                <div class="col-md-4 col-sm-4 col-xs-12">#}
+    {#                    <div class="certBox">#}
+    {#                        <div class="crtfictImg">#}
+    {#                            <img src="{% static 'images/content/foodcert_1.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
+    {#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
+    {#                            been#}
+    {#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-md-4 col-sm-4 col-xs-12">#}
+    {#                    <div class="certBox">#}
+    {#                        <div class="crtfictImg">#}
+    {#                            <img src="{% static 'images/content/foodcert_2.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
+    {#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
+    {#                            been#}
+    {#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-md-4 col-sm-4 col-xs-12">#}
+    {#                    <div class="certBox">#}
+    {#                        <div class="crtfictImg">#}
+    {#                            <img src="{% static 'images/content/foodcert_1.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <h4>Lorem Ipsum is simply dummy text</h4>#}
+    {#                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has#}
+    {#                            been#}
+    {#                            the industry's standard dummy text ever since the 1500s...<a href="#">Read more</a></p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
 
     <!--===================================-->
     <!--======== Inspiring Remarks ========-->

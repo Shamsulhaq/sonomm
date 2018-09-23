@@ -1,15 +1,12 @@
 <div class="col-md-3">
     <div class="prdtItem">
         <div class="prdtImg">
-        {% if prd.image %}
-            <img src="{{ prd.image.url }}" alt="">
-        {% endif %}
+            {% if prd.image %}
+                <img style='height: 100%; width: 100%; object-fit: contain' src="{{ prd.image.url }}" alt="">
+            {% endif %}
             <div class="cartOverlay">
                 <div class="cartOverlayIn">
                     <ul>
-                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                           aria-hidden="true"></i></a><span
-                                class="cartIcon">Shopping Cart</span></li>
                         <li><a href="#{{ prd.pk }}"
                                data-fancybox="gallery1"><i
                                 class="fa fa-eye"
@@ -18,9 +15,6 @@
                         <li><a href="{% url 'single_product' slug=prd.slug %}"><i
                                 class="fas fa-external-link-alt"></i></a><span
                                 class="cartIcon">View Details</span></li>
-                        <li><a href="#"><i class="fa fa-heart"
-                                           aria-hidden="true"></i></a><span
-                                class="cartIcon">Wishlist</span></li>
                         <li><a href="#"><i
                                 class="fas fa-balance-scale"></i></a><span
                                 class="cartIcon">Comparison</span></li>
@@ -31,10 +25,10 @@
                         <div class="col-md-5 col-sm-5 col-xs-12">
                             <div class="popImgBox">
                                 {% if prd.image %}
-                                <img src="{{ prd.image.url }}"
-                                     alt="">
+                                    <img style='height: 100%; width: 100%; object-fit: contain'  src="{{ prd.image.url }}"
+                                         alt="">
                                 {% endif %}
-                                    <p>{{ prd.get_discunt }} % Off</p>
+                                <p>{{ prd.get_discunt }} % Off</p>
 
                             </div>
                         </div>
@@ -48,7 +42,7 @@
                                                     {{ prd.name }}</h2>
                                                 <span>BDT: {{ prd.price }}</span>
                                                 <h5>Unit: {{ prd.unit }}</h5>
-                                                <p>{{ prd.sortDec }}.</p>
+                                                <p>{{ prd.sortDec }}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -59,13 +53,22 @@
                                             </div>
                                         </div>
                                     </div>
-{#             For Order                       #}
-                                    <button onclick="window.location.href='{% url 'index' %}'" type="button"
-                                            class="btn marTop20">
-                                        <i class="fas fa-cart-plus"></i>
-                                        Request To Order
+                                    {#             For Order                       #}
+                                    {% if prd.is_stock %}
+                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
+                                                class="btn marTop20">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Order Now
 
-                                    </button>
+                                        </button>
+                                    {% else %}
+                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
+                                                class="btn marTop20">
+                                            <i class="fas fa-cart-plus"></i>
+                                            Request To Order
+
+                                        </button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

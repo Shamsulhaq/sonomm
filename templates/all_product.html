@@ -17,8 +17,7 @@
             <h2>{{ title }}</h2>
             <ul>
                 <li><a href="{% url 'index' %}"><i class="fas fa-home"></i> home</a></li>
-                <li><a href="{% url 'category' name=ptitle.mainCat.name %}"><i
-                        class="fas fa-home"></i> {{ ptitle.mainCat.name }}</a></li>
+                <li><a href="{% url 'category' name=ptitle.mainCat.name %}"> {{ ptitle.mainCat.name }}</a></li>
                 <li>{{ title }}</li>
             </ul>
         </div>
