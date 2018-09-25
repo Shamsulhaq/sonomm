@@ -9,14 +9,13 @@ from .models import Order
 from .slider_Model import Slider
 
 
-
 # Register your models here.
 
 
 class ProductBasicAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'price', 'is_Feature', 'is_newAriavle', 'image']
+    list_display = ['__str__', 'regular_price', 'price', 'get_discunts', 'is_Feature', 'is_newAriavle', 'is_stock', 'is_Friday', 'is_out_stock', 'is_slide']
     search_fields = ['name', 'price', 'sortDec', 'description']
-    # filter_vertical = ['phone']
+    # filter_vertical = ['category__mainCat__name']
     list_per_page = 15
     list_filter = ['category__mainCat', 'category', 'is_Feature', 'is_newAriavle']
 
@@ -41,11 +40,11 @@ admin.site.register(ProductGallery)
 
 
 class ProductOrderAdmin(admin.ModelAdmin):
-    list_display = ['__str__','name', 'phone','total_price','is_confirm','is_paid']
-    search_fields = ['__str__', 'name']
+    list_display = ['__str__', 'name', 'phone', 'price', 'total_price','timestamp', 'is_confirm', 'is_paid', 'is_onprocess', 'is_done']
+    search_fields = ['name', 'phone']
     # filter_vertical = ['phone']
     list_per_page = 15
-    list_filter = ['is_done','is_onprocess','is_confirm','is_paid','product__category']
+    list_filter = ['is_done', 'is_onprocess', 'is_confirm', 'is_paid', 'product__category']
 
     class Meta:
         Model = Order

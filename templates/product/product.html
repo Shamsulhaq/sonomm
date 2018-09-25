@@ -75,8 +75,11 @@
                     </div>
                 </div>
             </div>
-            {% if prd.is_newAriavle %}
+            {% if prd.is_newAriavle and not prd.is_out_stock %}
                 <span class="new">New</span>
+            {% endif %}
+            {% if prd.is_out_stock %}
+                <span class="new">Out Of Stock</span>
             {% endif %}
         </div>
         <div class="staricon">

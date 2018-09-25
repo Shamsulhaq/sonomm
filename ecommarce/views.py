@@ -142,6 +142,7 @@ def getorder(request, slug):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.product = product
+        instance.price = product.price
         instance.save()
         mail_subject = 'Received Order request'
         name = form.cleaned_data.get('name')
@@ -159,7 +160,7 @@ def getorder(request, slug):
             'Available_in_Stock': abl,
         }
         message = get_template('mail/acc_active_email.html').render(messa)
-        to_email = 'bmshamsulhaq65@gmail.com'
+        to_email = 'muhitrana1978@gmail.com'
         email = EmailMessage(
             mail_subject, message, to=[to_email]
         )

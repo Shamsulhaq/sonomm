@@ -38,6 +38,7 @@ class ProductBasic(models.Model):
     is_slide = models.BooleanField(default=False)
     is_Friday = models.BooleanField(default=False)
     is_stock = models.BooleanField(default=False)
+    is_out_stock = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -54,6 +55,11 @@ class ProductBasic(models.Model):
     def get_discunt(self):
         dis = ((self.regular_price - self.price) / self.regular_price) * 100
         discubt = int(dis)
+        return discubt
+    def get_discunts(self):
+        dis = ((self.regular_price - self.price) / self.regular_price) * 100
+        discubt = int(dis)
+        discubt = str(discubt)+'%'
         return discubt
 
     @property
