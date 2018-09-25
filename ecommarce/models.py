@@ -1,6 +1,10 @@
 from django.db import models
-from .product_model import ProductBasic
 from django.db.models.signals import pre_save
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import get_template
+
+from .product_model import ProductBasic
 
 
 # Create your models here.
@@ -31,6 +35,18 @@ class Order(models.Model):
 def pd_pre_save_receiver(sender, instance, *args, **kwargs):
     if instance.is_done:
         instance.is_onprocess = False
+        messa = {
+            'Customer_name': instance.name,
+        }
+        mail_subject = 'Thanks mail'
+        message = get_template('mail/thanks_mail.html').render(messa)
+        to_email = instance.email
+        email_from = settings.EMAIL_HOST_USER
+        email = EmailMessage(
+            mail_subject, message, email_from, to=[to_email]
+        )
+        email.content_subtype = 'html'
+        email.send()
 
 
 pre_save.connect(pd_pre_save_receiver, sender=Order)

@@ -2,10 +2,8 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.template import Context
-from django.template.loader import render_to_string, get_template
+from django.template.loader import get_template
 from django.core.mail import EmailMessage
-from django.core.mail import send_mail
 from django.conf import settings
 
 from ecommarce.forms import OrderForm
@@ -118,7 +116,7 @@ def allCategorys(request):
 #             instance.product = product
 #             instance.save()
 #             mail_subject = 'Received Order request'
-#             message = render_to_string('acc_active_email.html', {
+#             message = render_to_string('order_request_mail.html', {
 #                 'Customer_name': form.cleaned_data.get('name'),
 #                 'Customer_Phone': form.cleaned_data.get('phone'),
 #                 'Customer_Email': form.cleaned_data.get('email'),
@@ -161,12 +159,11 @@ def getorder(request, slug):
             'Product': prod,
             'Available_in_Stock': abl,
         }
-        mail_subject = 'Order Info'
-        message = get_template('mail/acc_active_email.html').render(messa)
+        message = get_template('mail/order_request_mail.html').render(messa)
         to_email = 'muhitrana1978@gmail.com'
         email_from = settings.EMAIL_HOST_USER
         email = EmailMessage(
-            mail_subject, message,email_from, to=[to_email,email_from]
+            mail_subject, message, email_from, to=[to_email, email_from]
         )
         email.content_subtype = 'html'
         email.send()

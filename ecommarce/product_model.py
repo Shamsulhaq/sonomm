@@ -56,10 +56,11 @@ class ProductBasic(models.Model):
         dis = ((self.regular_price - self.price) / self.regular_price) * 100
         discubt = int(dis)
         return discubt
+
     def get_discunts(self):
         dis = ((self.regular_price - self.price) / self.regular_price) * 100
         discubt = int(dis)
-        discubt = str(discubt)+'%'
+        discubt = str(discubt) + '%'
         return discubt
 
     @property
@@ -78,6 +79,12 @@ class ProductGallery(models.Model):
 def pd_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
+
+    if instance.is_out_stock:
+        instance.is_stock = False
+
+    if instance.is_Feature:
+        instance.is_slide = True
 
 
 pre_save.connect(pd_pre_save_receiver, sender=ProductBasic)
