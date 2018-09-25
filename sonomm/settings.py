@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from .mail_info import *
+# Email config
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -25,7 +31,7 @@ SECRET_KEY = 'jll4_iej8lf2gr+kq(9_@*9u##tf*xp=01=*3e-8(d-uzn*ib1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shamsul65.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'shamsul65.pythonanywhere.com']
 
 # Application definition
 
@@ -37,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-CUSTOMAPP=[
+CUSTOMAPP = [
     'auth_module',
     'ecommarce',
 ]
@@ -73,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sonomm.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -83,7 +88,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -103,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -117,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
@@ -130,13 +132,9 @@ STATIC_ROOT = "/static/"
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT= os.path.join(BASE_DIR,"media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-LOGIN_URL='/user/login/'
+LOGIN_URL = '/user/login/'
 
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'shamsul65'
-EMAIL_HOST_PASSWORD = '742436sam'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+

@@ -4,11 +4,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.template import Context
 from django.template.loader import render_to_string, get_template
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.conf import settings
 
 from ecommarce.forms import OrderForm
 from ecommarce.product_model import ProductBasic, SubCategory, Category, ProductGallery
 from .slider_Model import Slider
-from django.core.mail import EmailMessage
 
 
 def index(request):
@@ -159,13 +161,16 @@ def getorder(request, slug):
             'Product': prod,
             'Available_in_Stock': abl,
         }
+        mail_subject = 'Order Info'
         message = get_template('mail/acc_active_email.html').render(messa)
         to_email = 'muhitrana1978@gmail.com'
+        email_from = settings.EMAIL_HOST_USER
         email = EmailMessage(
-            mail_subject, message, to=[to_email]
+            mail_subject, message,email_from, to=[to_email,email_from]
         )
         email.content_subtype = 'html'
         email.send()
+        # send_mail(mail_subject,message,email_from,[to_email,email_from],fail_silently=False)
         return HttpResponse('Thanks you ')
 
     return render(request, 'order.html', {"product": product, 'form': form})
