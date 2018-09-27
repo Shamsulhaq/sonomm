@@ -149,17 +149,23 @@ def getorder(request, slug):
         phone = form.cleaned_data.get('phone')
         email = form.cleaned_data.get('email')
         addr = form.cleaned_data.get('address')
+        area = form.cleaned_data.get('area')
+        dele = form.cleaned_data.get('delivery_Method')
         prod = product.name
         abl = product.is_stock
-        messa = {
+
+        context = {
             'Customer_name': name,
             'Customer_Phone': phone,
             'Customer_Email': email,
             'Customer_Address': addr,
+            'Customer_Area': area,
+            'Customer_Delivery': dele,
             'Product': prod,
             'Available_in_Stock': abl,
+
         }
-        message = get_template('mail/order_request_mail.html').render(messa)
+        message = get_template('mail/order_request_mail.html').render(context)
         to_email = 'muhitrana1978@gmail.com'
         email_from = settings.EMAIL_HOST_USER
         email = EmailMessage(
@@ -168,6 +174,9 @@ def getorder(request, slug):
         email.content_subtype = 'html'
         email.send()
         # send_mail(mail_subject,message,email_from,[to_email,email_from],fail_silently=False)
-        return HttpResponse('Thanks you ')
+        return render(request, 'print_order.html', context)
 
     return render(request, 'order.html', {"product": product, 'form': form})
+
+
+

@@ -1,20 +1,36 @@
-<li>
+<div class="col-md-3">
     <div class="prdtItem">
         <div class="prdtImg">
-            <img style='height: 100%; width: 100%; object-fit: contain'  src="{{ prd.image.url }}" alt="">
+            {% if prd.image %}
+                <img style='height: 100%; width: 100%; object-fit: contain' src="{{ prd.image.url }}" alt="">
+            {% endif %}
             <div class="cartOverlay">
                 <div class="cartOverlayIn">
                     <ul>
-                        <li><a class="btn btn-info" role="button" data-fancybox="gallery1" href="#{{ prd.pk }}">View Details </a></li>
-                        <li><a class="btn btn-info" role="button"  href="{% url 'single_product' slug=prd.slug %}">Buy Now</a></li>
+                        <li><a href="#{{ prd.pk }}"
+                               data-fancybox="gallery1"><i
+                                class="fa fa-eye"
+                                aria-hidden="true"></i></a><span
+                                class="cartIcon">Quick View</span></li>
+                        <li><a href="{% url 'single_product' slug=prd.slug %}"><i
+                                class="fas fa-external-link-alt"></i></a><span
+                                class="cartIcon">View Details</span></li>
+                        <li><a href="#"><i
+                                class="fas fa-balance-scale"></i></a><span
+                                class="cartIcon">Comparison</span></li>
                     </ul>
                 </div>
                 <div id="{{ prd.pk }}" class="prodctPop">
                     <div class="row">
                         <div class="col-md-5 col-sm-5 col-xs-12">
                             <div class="popImgBox">
-                                <img style='height: 100%; width: 100%; object-fit: contain'  src="{{ prd.image.url }}" alt="">
+                                {% if prd.image %}
+                                    <img style='height: 100%; width: 100%; object-fit: contain'
+                                         src="{{ prd.image.url }}"
+                                         alt="">
+                                {% endif %}
                                 <p>{{ prd.get_discunt }} % Off</p>
+
                             </div>
                         </div>
                         <div class="col-md-7 col-sm-7 col-xs-12">
@@ -27,7 +43,7 @@
                                                     {{ prd.name }}</h2>
                                                 <span>BDT: {{ prd.price }}</span>
                                                 <h5>Unit: {{ prd.unit }}</h5>
-                                                <p>{{ prd.sortDec }}.</p>
+                                                <p>{{ prd.sortDec }}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -60,8 +76,11 @@
                     </div>
                 </div>
             </div>
-            {% if prd.is_Feature %}
-                <span class="new">Feature</span>
+            {% if prd.is_newAriavle and not prd.is_out_stock %}
+                <span class="new">New</span>
+            {% endif %}
+            {% if prd.is_out_stock %}
+                <span class="new">Out Of Stock</span>
             {% endif %}
         </div>
         <div class="staricon">
@@ -71,7 +90,11 @@
                 <li><i class="fas fa-star"></i></li>
             </ul>
             <span>BDT:{{ prd.price }}</span>
+            {% if prd.regular_price %}
+                <span class="priceOvRgt">BDT:{{ prd.regular_price }}</span>
+            {% endif %}
             <p><a href="{% url 'single_product' slug=prd.slug %}">{{ prd.name }} || {{ prd.unit }}</a></p>
         </div>
     </div>
-</li>
+</div>
+

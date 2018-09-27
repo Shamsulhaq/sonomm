@@ -81,7 +81,7 @@
     </div>
     <div class="fantasyIn">
         <ul>
-            {% for prd in products %}
+            {% for prd in products|slice:":3" %}
                 {% if prd.is_Friday %}
                     <li>
                         <div class="fantasyItem">
@@ -107,14 +107,7 @@
                                 <div class="cartOverlay">
                                     <div class="cartOverlayIn">
                                         <ul>
-                                            {% if prd.is_stock %}
-                                                <li><a href="{% url 'single_product' slug=prd.slug %}"><i
-                                                    class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span>
-                                            </li>
-                                            {% else %}<li><a href="{% url 'single_product' slug=prd.slug %}"><i
-                                                    class="fas fa-external-link-alt"></i></a><span class="cartIcon">View Details</span>
-                                            </li>
-                                            {% endif %}
+                                            <a class="btn btn-info" role="button"  href="{% url 'single_product' slug=prd.slug %}">Buy Now</a>
 
                                         </ul>
                                         <h4>{{ prd.name }}</h4>

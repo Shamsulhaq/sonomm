@@ -31,7 +31,23 @@ class OrderForm(forms.ModelForm):
                                      'placeholder': 'Enter Email Address',
                                      'type': 'email'
                                  }))
+    address = forms.CharField(label='Address', max_length=254, required=True,
+                              help_text='Required. Inform a valid address.',
+                              widget=forms.Textarea(
+                                  attrs={
+                                      'class': 'form-control',
+                                      'placeholder': 'Enter Your House and Road number',
+                                      'type': 'text'
+                                  }))
+    area = forms.CharField(label='Area',max_length=100,required=True,
+                           help_text='Required. Inform a valid Area Name.',
+                           widget=forms.TextInput(
+                               attrs={
+                                   'class': 'form-control',
+                                   'placeholder': 'Enter Your Area Address',
+                                   'type': 'text'
+                               }))
 
     class Meta:
         model = Order
-        fields = ('name', 'phone', 'email', 'address', 'quentity')
+        fields = ('name', 'phone',  'email','address', 'area', 'quantity', 'delivery_Method')

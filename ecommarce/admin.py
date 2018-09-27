@@ -40,11 +40,11 @@ admin.site.register(ProductGallery)
 
 
 class ProductOrderAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'name', 'phone', 'price', 'total_price','timestamp', 'is_confirm', 'is_paid', 'is_onprocess', 'is_done']
+    list_display = ['__str__', 'name', 'phone', 'price', 'total_price','timestamp','delivery_Method', 'is_confirm', 'is_paid', 'is_done']
     search_fields = ['name', 'phone']
     # filter_vertical = ['phone']
     list_per_page = 15
-    list_filter = ['is_done', 'is_onprocess', 'is_confirm', 'is_paid', 'product__category']
+    list_filter = ['delivery_Method','is_done',  'is_confirm', 'is_paid', 'product__category']
 
     class Meta:
         Model = Order

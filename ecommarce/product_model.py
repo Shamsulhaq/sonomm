@@ -27,7 +27,7 @@ class SubCategory(models.Model):
 class ProductBasic(models.Model):
     name = models.CharField(max_length=200, help_text='Enter your Product Title')
     category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
-    regular_price = models.DecimalField(max_digits=9, decimal_places=2, default=100.00, blank=True, null=True)
+    regular_price = models.DecimalField(max_digits=9, decimal_places=2, default=0)
     price = models.DecimalField(max_digits=9, decimal_places=2, default=100.00)
     unit = models.CharField(help_text='Enter unity deviate by comma', max_length=200)
     sortDec = models.TextField(max_length=1000)
@@ -53,15 +53,23 @@ class ProductBasic(models.Model):
         return self.category.name
 
     def get_discunt(self):
-        dis = ((self.regular_price - self.price) / self.regular_price) * 100
-        discubt = int(dis)
-        return discubt
+        if self.regular_price == 0:
+            discubt=0
+            return discubt
+        else:
+            dis = ((self.regular_price - self.price) / self.regular_price) * 100
+            discubt = int(dis)
+            return discubt
 
     def get_discunts(self):
-        dis = ((self.regular_price - self.price) / self.regular_price) * 100
-        discubt = int(dis)
-        discubt = str(discubt) + '%'
-        return discubt
+        if self.regular_price == 0:
+            discubt=0
+            return discubt
+        else:
+            dis = ((self.regular_price - self.price) / self.regular_price) * 100
+            discubt = int(dis)
+            discubt = str(discubt) + '%'
+            return discubt
 
     @property
     def title(self):

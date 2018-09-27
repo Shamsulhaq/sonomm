@@ -1,120 +1,35 @@
+{% load static %}
+{% include "inclueds_front/head.html" %}
 
-<?php
-	include "core/init.php"; 
-	include "inclueds_front/head.php"; 
-?>
-
-    
 <!--===================================-->
 <!--========== Main Body =============-->
-<!--===================================--> 
-   
-   <section class="contentBody">
-       <div class="container">
-           <div class="row">            
-               <div class="col-md-12">
-                   <div class="dashBrdCont printOrderBox">
-                       <div class="printImg">
-                           <img src="images/content/Sonomm-Logo-Design5.png" alt="">
-                       </div>
-                       <div class="printText">
-                            <p>288/8 c Khilgaong (Near Anser Headquarter)</p>
-                            <p>Dhaka, Bangladesh</p>
-                            <p>Ph:01911480021</p>
-                           <p>Email:sonomm@gmail.com</p>
-                       </div>
-                        <h3 class="dashTitle clrded3e62"><b>Order #100136952</b></h3>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="orderBoxIn">
-                                    <span>Order Date: February 15, 2018</span>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="orderBoxIn">
-                                    <div class="row">                                        
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="infoTop">
-                                                <h5>Shipping Address</h5>
-                                                <p>Shamsul Haq</p>
-                                                <p>288/8 c Khilgaong <br>(Near Anser Headquarter)</p>
-                                                <p>Dhaka</p>
-                                                <p>Bangladesh</p>
-                                                <p>Ph:01628050401</p>
-                                            </div>
-                                            <br>
-                                            <div class="infoTop">
-                                                <h5>Shipping Method</h5>
-                                                <p>FastPick</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="infoTop">
-                                                <h5>Billing Address</h5>
-                                                <p>Shamsul Haq</p>
-                                                <p>288/8 c Khilgaong <br>(Near Anser Headquarter)</p>
-                                                <p>Dhaka</p>
-                                                <p>Bangladesh</p>
-                                                <p>Ph:01628050401</p>
-                                            </div>
-                                            <br>
-                                            <div class="infoTop">
-                                                <h5>Payment Method</h5>
-                                                <p>Cash On Delivery</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="referActionBox orderAction">
-                                    <div class="actionTable">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Name</th>
-                                                    <th>Price</th>
-                                                    <th>Qty</th>
-                                                    <th>Subtotal</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>xihehs Name</td>
-                                                    <td>৳1,799.00</td>
-                                                    <td>Order:2<br>Shipped:2</td>
-                                                    <td>৳3,598.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-right" colspan="3">Subtotal</td>
-                                                    <td>৳3,598.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-right" colspan="3">Discount</td>
-                                                    <td>00.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-right" colspan="3">Shipping &amp; Heading</td>
-                                                    <td>৳100.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-right" colspan="3"><b>Grand Total</b></td>
-                                                    <td>৳3,698.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+<!--===================================-->
 
-<?php
-	include "inclueds_front/footer_link.php"; 
-?>
+<section class="contentBody">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dashBrdCont printOrderBox">
+                    <div class="printImg">
+                        <img src="{% static "images/content/Sonomm-Logo-Design5.png" %}" alt="">
+                    </div>
+                    <div class="printText">
+                        <p>Order Submission Successfully</p>
+                        <p>Dear Mr. {{ Customer_name }}</p>
+                        <p>Your Phone Number {{ Customer_Phone }}</p>
+                        <p style="color: #2b542c">Your Oder is Successfully Submitted. Please wait for Confirmation Call</p>
+                    </div>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+            <center><a class="btn btn-info" role="button" style="background-color: #f5224d"
+                                       href="{% url 'index' %}">Buy More</a></center>
+        </div>
+    </div>
+</section>
+
+
+{% include "inclueds_front/footer_link.html" %}
 

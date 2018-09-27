@@ -1135,6 +1135,7 @@ ul.mainManuIn a:before {
 .prdtImg img {
     width: 100%;
     display: block;
+    background-color: white;
 }
 
 .cartOverlay {
@@ -1161,7 +1162,7 @@ ul.mainManuIn a:before {
 }
 
 .cartOverlayIn ul {
-    background-color: #d21f44;
+    background-color: transparent;
 }
 
 .cartOverlayIn li {
@@ -1172,13 +1173,14 @@ ul.mainManuIn a:before {
 
 .cartOverlayIn li button {
     padding: 0;
-    background-color: transparent;
+    background-color: #d21f44;
     border: none;
     color: #fff;
 }
 
 .cartOverlayIn li a {
-    color: #fff;
+    color: #ffffff;
+    background-color: #d21f44;
 }
 
 .cartIcon {
@@ -1261,6 +1263,7 @@ ul.mainManuIn a:before {
 
 .prdctRgtBox .prdtImg {
     height: 220px;
+    background: #ffffff;
 }
 
 .productTab .nav-tabs {
@@ -1541,7 +1544,7 @@ ul.mainManuIn a:before {
 /*==============================*/
 .shopCat {
     padding-bottom: 30px;
-    background-image: url(static/images/content/shop_by_category.png);
+    background-image: url(img/shop_by_category.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
@@ -1570,6 +1573,7 @@ ul.mainManuIn a:before {
 .shopImg img {
     width: 100%;
     display: block;
+    height: 100px;
 }
 
 .shopCatItem p {
@@ -4413,11 +4417,13 @@ legend {
     }
 
     .prdctLeftBox .prdtImg {
-        height: auto;
+        height: 460px;
+
     }
 
     .bigImg {
         max-width: 486px;
+        background: #ffffff;
     }
 
     #field1 input {
@@ -4504,6 +4510,7 @@ legend {
 
     .prdctLeftBox .prdtImg {
         height: auto;
+        background: #ffffff;
     }
 
     .cartOverlayIn li {
@@ -4637,6 +4644,7 @@ legend {
 
     .prdctRgtBox .prdtImg {
         height: auto;
+        background: #ffffff;
     }
 
     .prdctLeftBox {
