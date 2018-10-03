@@ -18,7 +18,7 @@ from .views import(
     index, all_product,
     category, search,
     single_product,allCategorys,
-    getorder
+    getorder,get_about
 )
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path('products/<name>', all_product, name='products'),
     path('product/<slug>', single_product, name='single_product'),
     path('order/<slug>', getorder, name='order'),
+    path('about/', get_about, name='about'),
     # /path('index/',Index.as_view(), name='index'),
 
 ]

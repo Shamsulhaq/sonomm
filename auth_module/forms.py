@@ -62,3 +62,9 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
 
+
+class GetEmailForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': "form-control", 'name': "email", 'placeholder': "Enter your email", 'type': 'email'
+
+               }))

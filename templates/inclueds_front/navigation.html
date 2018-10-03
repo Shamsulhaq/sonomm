@@ -22,51 +22,43 @@
                     <div class="accountBox">
                         <ul>
                             {% if user.is_authenticated %}
-                                  <a class=" " href="{% url 'index' %}"><span><i class="fas fa-user"></i></span>{{ user.get_full_name }}</a> ||
-                                    <a href="{% url 'logout' %}">Logout</a>
+                                <a class=" " href="{% url 'index' %}"><span><i
+                                        class="fas fa-user"></i></span>{{ user.get_full_name }}</a> ||
+                                <a href="{% url 'logout' %}">Logout</a>
                             {% else %}
-                            <li>
+                                <li>
                                 <a class="login" href="#"><span><i class="fas fa-user"></i></span>My Account</a>
                             {% endif %}
-                                <div class="loginBox">
-                                    <form action="{% url 'login' %}" method="POST">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <label>User Name</label>
-                                            <input type="text" class="form-control" placeholder="User name"
-                                                   name="username">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-control" placeholder="Password"
-                                                   name="pwd">
-                                        </div>
-                                        <div class="loginBtn">
-                                            <button class="btn" type="submit">Login</button>
-                                            <a href="{% url 'registration' %}"> Registration</a>
-                                            {#                                            <p>Not a member? <a href="{% url 'registration' %}">Sign up now</a></p>#}
-                                            <!--<p><a href="#">Forgot password?</a></p>-->
-                                        </div>
-                                    </form>
-                                </div>
+                            <div class="loginBox">
+                                <form action="{% url 'login' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label>User Name</label>
+                                        <input type="text" class="form-control" placeholder="User name"
+                                               name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Password"
+                                               name="pwd">
+                                    </div>
+                                    <div class="loginBtn">
+                                        <button class="btn" type="submit">Login</button>
+                                        <a href="{% url 'registration' %}"> Registration</a>
+                                        {#                                            <p>Not a member? <a href="{% url 'registration' %}">Sign up now</a></p>#}
+                                        <!--<p><a href="#">Forgot password?</a></p>-->
+                                    </div>
+                                </form>
+                            </div>
                             </li>
-                            {#                            <li><a href="#"><span><i class="fas fa-check-square"></i></span>Checkout</a></li>#}
                             <li>
                                 <a href="#"><span>৳</span>Taka</a>
-                                {#                                <ul class="subDrop">#}
-                                {#                                    <li><a href="#">€ Euro</a></li>#}
-                                {#                                    <li><a href="#">£ Pound Sterling</a></li>#}
-                                {#                                    <li><a href="#">$ US Dollar</a></li>#}
-                                {#                                </ul>#}
+
                             </li>
                             <li>
                                 <a href="#"><span></span><img class="countryImg"
                                                               src="{% static 'images/content/english.png' %}">English</a>
-                                {#                                <ul class="subDrop lastDrop">#}
-                                {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/bangladesh.png">Bangla</a></li>#}
-                                {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/english.png">English</a></li>#}
-                                {#                                    <li><a href="#"><img class="countryImg" src="media/images/content/arobic.png">Arabic</a></li>#}
-                                {#                                </ul>#}
+
                             </li>
                         </ul>
                     </div>
@@ -84,8 +76,9 @@
                 </div>
                 <div class="col-md-4 col-sm-8">
                     <div class="hdrSerchBox">
-                        <form class="searchForm"  action="{% url 'search' %}" method="get">
-                            <input class="text" name="search" type="search" value="{{ request.GET.search }}" placeholder="Search"/>
+                        <form class="searchForm" action="{% url 'search' %}" method="get">
+                            <input class="text" name="search" type="search" value="{{ request.GET.search }}"
+                                   placeholder="Search"/>
                             <span>
                                 <input class="submit" type="submit" value="Submit"/>
                                 <i class="fas fa-search"></i>
@@ -103,53 +96,7 @@
                                     <span class="hotlineIcon"><i class="fas fa-life-ring"></i></span>
                                 </div>
                             </div>
-                            {#                            <div class="col-md-6">#}
-                            {#                                <div class="shoppingCartIcon">#}
-                            {#                                    <a class="cartImg" href="JavaScript:void(0);"><span><img src="media/images/content/cart.png" alt=""> Cart</span></a>#}
-                            {#                                    <span class="cartItem"><span><!-- Add item Count-->2</span></span>#}
-                            {#                                    <div class="cartItemBox">#}
-                            {#                                        <h5>There are 2 items in your shopping cart</h5>#}
-                            {#                                        <div class="cartIn">#}
-                            {#                                            <div class="cartItemImg">#}
-                            {#                                                <img src="media/images/content/small1.jpg" alt="">#}
-                            {#                                            </div>#}
-                            {#                                            <div class="cartInfo">#}
-                            {#                                                <h5>Bad Girl long sleve shirt</h5>#}
-                            {#                                                <p>TK1200 x 1</p>#}
-                            {#                                            </div>#}
-                            {#                                            <div class="cartDlt">#}
-                            {#                                                <button>x</button>#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                        <div class="cartIn">#}
-                            {#                                            <div class="cartItemImg">#}
-                            {#                                                <img src="media/images/content/small1.jpg" alt="">#}
-                            {#                                            </div>#}
-                            {#                                            <div class="cartInfo">#}
-                            {#                                                <h5>Bad Girl long sleve shirt</h5>#}
-                            {#                                                <p>TK1200 x 1</p>#}
-                            {#                                            </div>#}
-                            {#                                            <div class="cartDlt">#}
-                            {#                                                <button>x</button>#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                        <div class="cartTotal">#}
-                            {#                                            <div class="row">#}
-                            {#                                                <div class="col-md-6">#}
-                            {#                                                    <p>Total</p>#}
-                            {#                                                </div>#}
-                            {#                                                <div class="col-md-6">#}
-                            {#                                                    <span>TK2400</span>#}
-                            {#                                                </div>#}
-                            {#                                            </div>#}
-                            {#                                        </div>#}
-                            {#                                        <div class="cartBtn">#}
-                            {#                                            <a class="btn pull-right" href="#">Checkout</a>#}
-                            {#                                            <a class="btn pull-left" href="#">My cart</a>#}
-                            {#                                        </div>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
-                            {#                            </div>#}
+
                         </div>
                     </div>
                 </div>
@@ -159,343 +106,13 @@
 
     <div class="container">
         <div class="menuBox">
-                        <aside class="catgryMenu">
-                            <a class="catMenuBtn" href="{% url 'mcategory' %}">
-                                all Catagories
-                                <span>&nbsp;</span>
-                            </a>
-{#                            <div class="catMenuIn">#}
-{#                                <ul>#}
-{#                                    <li>#}
-{#                                        <a href="{% url 'category' name="Organic" %}">Organic</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Common Foods</a></li>#}
-{#                                                        <li><a href="#">Dairy Products</a></li>#}
-{#                                                        <li><a href="#">Fishes</a></li>#}
-{#                                                        <li><a href="#">Baby Foods</a></li>#}
-{#                                                        <li><a href="#">Pet Food</a></li>#}
-{#                                                        <li><a href="#">Fertilizer</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Vegetables</a></li>#}
-{#                                                        <li><a href="#">Cabbage</a></li>#}
-{#                                                        <li><a href="#">Capsicum</a></li>#}
-{#                                                        <li><a href="#">Carrot</a></li>#}
-{#                                                        <li><a href="#">Cauliflower</a></li>#}
-{#                                                        <li><a href="#">Cucumber</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fruits</a></li>#}
-{#                                                        <li><a href="#">Apple</a></li>#}
-{#                                                        <li><a href="#">Apricot</a></li>#}
-{#                                                        <li><a href="#">Banana</a></li>#}
-{#                                                        <li><a href="#">Black Curran</a></li>#}
-{#                                                        <li><a href="#">Grapes</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Meat</a></li>#}
-{#                                                        <li><a href="#">Chicken</a></li>#}
-{#                                                        <li><a href="#">Beef</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Dairy Products</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fishes</a></li>#}
-{#                                                        <li><a href="#">Slender rasbora</a></li>#}
-{#                                                        <li><a href="#">Hilsa</a></li>#}
-{#                                                        <li><a href="#">Carp</a></li>#}
-{#                                                        <li><a href="#">Climbing perch</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fertilizer</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Pet Food</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="menuLogo">#}
-{#                                                <img src="media/images/content/Sonomm-Logo-Design5.png" alt="">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="#">Non-Organic</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Common Foods</a></li>#}
-{#                                                        <li><a href="#">Dairy Products</a></li>#}
-{#                                                        <li><a href="#">Fishes</a></li>#}
-{#                                                        <li><a href="#">Baby Foods</a></li>#}
-{#                                                        <li><a href="#">Pet Food</a></li>#}
-{#                                                        <li><a href="#">Fertilizer</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Vegetables</a></li>#}
-{#                                                        <li><a href="#">Cabbage</a></li>#}
-{#                                                        <li><a href="#">Capsicum</a></li>#}
-{#                                                        <li><a href="#">Carrot</a></li>#}
-{#                                                        <li><a href="#">Cauliflower</a></li>#}
-{#                                                        <li><a href="#">Cucumber</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fruits</a></li>#}
-{#                                                        <li><a href="#">Apple</a></li>#}
-{#                                                        <li><a href="#">Apricot</a></li>#}
-{#                                                        <li><a href="#">Banana</a></li>#}
-{#                                                        <li><a href="#">Black Curran</a></li>#}
-{#                                                        <li><a href="#">Grapes</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Meat</a></li>#}
-{#                                                        <li><a href="#">Chicken</a></li>#}
-{#                                                        <li><a href="#">Beef</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Dairy Products</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fishes</a></li>#}
-{#                                                        <li><a href="#">Slender rasbora</a></li>#}
-{#                                                        <li><a href="#">Hilsa</a></li>#}
-{#                                                        <li><a href="#">Carp</a></li>#}
-{#                                                        <li><a href="#">Climbing perch</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Fertilizer</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Pet Food</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                        <li><a href="#">lorem ipsum</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="menuLogo">#}
-{#                                                <img src="media/images/content/Sonomm-Logo-Design5.png" alt="">#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="">Computers</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Computers</a></li>#}
-{#                                                        <li><a href="#">Desktop Computers</a></li>#}
-{#                                                        <li><a href="#">Laptop &amp; Notebooks</a></li>#}
-{#                                                        <li><a href="#">Apple Mac</a></li>#}
-{#                                                        <li><a href="#">Apple Accessories</a></li>#}
-{#                                                        <li><a href="#">Computer Accessories</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="">Mobiles</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Mobiles</a></li>#}
-{#                                                        <li><a href="#">Mobile Phones</a></li>#}
-{#                                                        <li><a href="#">Tablets</a></li>#}
-{#                                                        <li><a href="#">Feature Phone</a></li>#}
-{#                                                        <li><a href="#">Mobile &amp; Tablet Accessories</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="">Men</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Men</a></li>#}
-{#                                                        <li><a href="#">Clothing</a></li>#}
-{#                                                        <li><a href="#">Accessories</a></li>#}
-{#                                                        <li><a href="#">Fragrances</a></li>#}
-{#                                                        <li><a href="#">Footwears</a></li>#}
-{#                                                        <li><a href="#">Beauty Care</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="">Women</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Women</a></li>#}
-{#                                                        <li><a href="#">Clothing</a></li>#}
-{#                                                        <li><a href="#">Accessories</a></li>#}
-{#                                                        <li><a href="#">Fragrances</a></li>#}
-{#                                                        <li><a href="#">Footwears</a></li>#}
-{#                                                        <li><a href="#">Beauty Care</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="{% url 'category' name="Kids" %}">Kids</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Kids</a></li>#}
-{#                                                        <li><a href="#">Clothing</a></li>#}
-{#                                                        <li><a href="#">Accessories</a></li>#}
-{#                                                        <li><a href="#">Toys</a></li>#}
-{#                                                        <li><a href="#">Footwears</a></li>#}
-{#                                                        <li><a href="#">School Accessories</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="">Home &amp; Living</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Home &amp; Living</a></li>#}
-{#                                                        <li><a href="#">Bedding</a></li>#}
-{#                                                        <li><a href="#">Furniture</a></li>#}
-{#                                                        <li><a href="#">Lighting</a></li>#}
-{#                                                        <li><a href="#">Kitchen &amp; Dining</a></li>#}
-{#                                                        <li><a href="#">Home Fixtures &amp; Repairs</a></li>#}
-{#                                                        <li><a href="#">Bathroom Accessories</a></li>#}
-{#                                                        <li><a href="#">Outdoor &amp; Garden</a></li>#}
-{#                                                        <li><a href="#">Home Storage Supplies</a></li>#}
-{#                                                        <li><a href="#">Home Decor</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="{% url 'category' name="Educational" %}">Educational</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">Daily Needs</a></li>#}
-{#                                                        <li><a href="#">Lighting  &amp; Bulbs</a></li>#}
-{#                                                        <li><a href="#">Fans</a></li>#}
-{#                                                        <li><a href="#">Tools  &amp; Hardware</a></li>#}
-{#                                                        <li><a href="#">Switch,Socket, &amp; Multiplug</a></li>#}
-{#                                                        <li><a href="#">Pest Contorl</a></li>#}
-{#                                                        <li><a href="#">Solar Product</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="{% url 'category' name="Exclusive" %}">exclusive</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">gadgets</a></li>#}
-{#                                                        <li><a href="#">educational</a></li>#}
-{#                                                        <li><a href="#">smart home</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="{% url 'category' name="Gifts" %}">gifts</a>#}
-{#                                        <div class="catComnMenuIn">#}
-{#                                            <div class="row">#}
-{#                                                <div class="col-md-3">#}
-{#                                                    <ul>#}
-{#                                                        <li class="subMenuTitle"><a href="#">wooden gifts</a></li>#}
-{#                                                        <li><a href="#">leather gifts</a></li>#}
-{#                                                        <li><a href="#">metal gifts</a></li>#}
-{#                                                    </ul>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </li>#}
-{#                                </ul>#}
-{#                            </div>#}
-                        </aside>
+            <aside class="catgryMenu">
+                <a class="catMenuBtn" href="{% url 'mcategory' %}">
+                    all Catagories
+                    <span>&nbsp;</span>
+                </a>
+            </aside>
             <nav class="navigation">
-                {#                <a class="openCloseBtn" href="JavaScript:void(0);"><img src="media/images/content/openClose.png" alt="none"></a>#}
                 <ul class="mainMenu">
                     <li>
                         <a href="{% url 'category' name="Organic" %}">Organic <span class="menuIcon"><i
@@ -512,15 +129,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{% url 'category' name="Educational" %}">Educational <span class="menuIcon"><i
-                                class="fas fa-angle-down"></i></span></a>
-                        <ul class="mainManuIn">
-                            <li><a href="{% url 'products' name='E-Toys' %}">E-Toys</a></li>
-                            <li><a href="{% url 'products' name='Books' %}">Books</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{% url 'category' name="Kids" %}">Kids <span class="menuIcon"><i
+                        <a href="{% url 'category' name="Kids & Mom" %}">Kids & Mom <span class="menuIcon"><i
                                 class="fas fa-angle-down"></i></span></a>
                         <ul class="mainManuIn">
                             <li><a href="{% url 'products' name='Clothing' %}">Clothing</a></li>
@@ -528,6 +137,51 @@
                             <li><a href="{% url 'products' name='Toys' %}">Toys</a></li>
                             <li><a href="{% url 'products' name='Footwears' %}">Footwears</a></li>
                             <li><a href="{% url 'products' name='School Accessories' %}">School Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' name="DAILY-NEEDS" %}">DAILY-NEEDS <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
+                        <ul class="mainManuIn">
+                            <li><a href="{% url 'products' name='Mosquito Killers' %}">MOSQUITO KILLERS</a></li>
+                            <li><a href="{% url 'products' name='Pest Contorl' %}">Pest Contorl</a></li>
+                            <li><a href="{% url 'products' name='Are Freshers' %}">AIR FRESHENERS</a></li>
+                            <li><a href="{% url 'products' name='Other Necessaries' %}">OTHER NECESSARIES</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' name="Men" %}">MEN <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
+                        <ul class="mainManuIn">
+                            <li><a href="{% url 'products' name='Men Clothing' %}">Men Clothing</a></li>
+                            <li><a href="{% url 'products' name='Men Accessories' %}">Men Accessories</a></li>
+                            <li><a href="{% url 'products' name='Men Fragrances' %}">Men Fragrances</a></li>
+                            <li><a href="{% url 'products' name='Men Footwears' %}">Men Footwears</a></li>
+                            <li><a href="{% url 'products' name='Men Beauty Care' %}">Men Beauty Care</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' name="Women" %}">WOMEN <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
+                        <ul class="mainManuIn">
+                            <li><a href="{% url 'products' name='Women Clothing' %}">Women Clothing</a></li>
+                            <li><a href="{% url 'products' name='Women Accessories' %}">Women Accessories</a></li>
+                            <li><a href="{% url 'products' name='Women Fragrances' %}">WomenFragrances</a></li>
+                            <li><a href="{% url 'products' name='Women Footwears' %}">Women Footwears</a></li>
+                            <li><a href="{% url 'products' name='Women Beauty Care' %}">Women Beauty Care</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' name="Educational" %}">Educational <span class="menuIcon"><i
+                                class="fas fa-angle-down"></i></span></a>
+                        <ul class="mainManuIn">
+                            <li><a href="{% url 'products' name='Learning Toys' %}">Learning Toys</a></li>
+                            <li><a href="{% url 'products' name='Grammar Learning' %}">Grammar Learning</a></li>
+                            <li><a href="{% url 'products' name='Math Learning' %}">Math Learning</a></li>
+                            <li><a href="{% url 'products' name='Science Tools' %}">Science Tools</a></li>
+                            <li><a href="{% url 'products' name='Essential Books' %}">Essential Books</a></li>
+                            <li><a href="{% url 'products' name='Stationery' %}">Stationery</a></li>
+                            <li><a href="{% url 'products' name='Bags' %}">Bags</a></li>
                         </ul>
                     </li>
                     <li>
@@ -546,25 +200,7 @@
                             <li><a href="{% url 'products' name='Leather Gifts' %}">leather gifts</a></li>
                             <li><a href="{% url 'products' name='Wooden Gifts' %}">wooden gifts</a></li>
                             <li><a href="{% url 'products' name='Metal Gifts' %}">metal gifts</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">More <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="mainManuIn last">
-                            <li><a href="#">blog</a></li>
-                            <li><a href="#">Affiliate Marketing</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="photo_gallery.php">Photo Gallery</a></li>
-                            <li><a href="#">Video Gallery</a></li>
-                            <li><a href="#">Selected news</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Help <span class="menuIcon"><i class="fas fa-angle-down"></i></span></a>
-                        <ul class="mainManuIn last">
-                            <li><a href="#">know about cart</a></li>
-                            <li><a href="#">know about checkout</a></li>
-                            <li><a href="#">know about wishlist</a></li>
+                            <li><a href="{% url 'products' name='Others Gifts' %}">Others gifts</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -8,13 +8,16 @@ from django.conf import settings
 
 from ecommarce.forms import OrderForm
 from ecommarce.product_model import ProductBasic, SubCategory, Category, ProductGallery
-from .slider_Model import Slider
+from .slider_Model import Slider, LimitedOffer
+from  .inspiring_remark_model import InspiringRemark
 
 
 def index(request):
     orproducts = ProductBasic.objects.order_by('-timestamp').filter(category__mainCat__name='Organic')
     products = ProductBasic.objects.order_by('-timestamp')
-    slider = Slider.objects.all()
+    slider = Slider.objects.all().filter(active = True)
+    remark = InspiringRemark.objects.all().filter(active = True,is_in_font=True)
+    offer = LimitedOffer.objects.all().filter(active=True)
     category = Category.objects.all()
     categorys = SubCategory.objects.filter(mainCat__name="Organic")
     paginator = Paginator(products, 8)  # Show 8 contacts per page
@@ -29,7 +32,9 @@ def index(request):
         'products': products,
         'cats': categorys,
         'cat': category,
-        'slider': slider
+        'slider': slider,
+        'remarks':remark,
+        'offers':offer
 
     }
     return render(request, 'index.html', context)
@@ -179,4 +184,5 @@ def getorder(request, slug):
     return render(request, 'order.html', {"product": product, 'form': form})
 
 
-
+def get_about(request):
+    return render(request, 'about.html')

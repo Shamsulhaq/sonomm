@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from auth_module.forms import SignUpForm
+from auth_module.forms import SignUpForm, GetEmailForm
+from ecommarce.slider_Model import GetEmail
+
 
 # Create Account.
 
@@ -44,7 +46,6 @@ def getlogout(request):
     return redirect('login')
 
 
-
 #
 # def addCustomer(request):
 #     if request.user.is_authenticated:
@@ -64,3 +65,12 @@ def getlogout(request):
 #         return render(request, 'coustomer_reg.html', {'form': form})
 #     else:
 #         return redirect('registration')
+def get_email(request):
+    if request.method == 'POST':
+        form = GetEmailForm(request.POST)
+        if form.is_valid():
+            obj = GetEmail()  # gets new object
+            obj.email = form.cleaned_data['email']
+            obj.save()
+            return redirect('index')
+    return redirect('index')

@@ -81,7 +81,7 @@
     </div>
     <div class="fantasyIn">
         <ul>
-            {% for prd in products|slice:":3" %}
+            {% for prd in products %}
                 {% if prd.is_Friday %}
                     <li>
                         <div class="fantasyItem">
@@ -206,8 +206,10 @@
                         <div class="shopCatItem">
                             <a href="{% url 'category' name=c.name %}">
                                 <div class="shopImg">
+                                    {% if c.image %}
                                     <img style='object-fit: contain' src="{{ c.image.url }}"
                                          alt="">
+                                    {% endif %}
                                 </div>
                                 <p>{{ c.name }}</p>
                             </a>
@@ -274,52 +276,28 @@
     <div class="bigOffer pTopbtm60">
         <div class="container">
             <ul class="bigOfrSlid">
+                {% for offer in offers %}
                 <li>
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-md-12">
                             <div class="bigOfrLeft">
-                                <img src="{% static 'images/content/big_offer.png' %}" alt="">
+                                {% if offer.image %}
+                                <img src="{{ offer.image.url }}" alt="">
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-md-12">
                             <div class="bigOfrRgt">
                                 <h4>GET IT NOW</h4>
                                 <h2>limited offer</h2>
-                                <p>HANDBAGS COLLECTION FOR WOMEN</p>
-                                <ul>
-                                    <li><span><b>46</b> days</span></li>
-                                    <li><span><b>10</b> hours</span></li>
-                                    <li><span><b>10</b> mint</span></li>
-                                    <li><span><b>08</b> secs</span></li>
-                                </ul>
-                                <button class="btn">Order</button>
+                                <p><a href="{% url 'single_product' slug=offer.product.slug %}">{{ offer.product.title }}</a></p>
+                                <h2>{{ offer.last_date|timeuntil }}</h2>
+                                <button onclick="window.location.href='{% url 'order' slug=offer.product.slug %}'"class="btn">Order</button>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-md-12">
-                            <div class="bigOfrLeft">
-                                <img src="{% static 'images/content/big_offer.png' %}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-md-12">
-                            <div class="bigOfrRgt">
-                                <h4>GET IT NOW</h4>
-                                <h2>limited offer</h2>
-                                <p>HANDBAGS COLLECTION FOR WOMEN</p>
-                                <ul>
-                                    <li><span><b>46</b> days</span></li>
-                                    <li><span><b>10</b> hours</span></li>
-                                    <li><span><b>10</b> mint</span></li>
-                                    <li><span><b>08</b> secs</span></li>
-                                </ul>
-                                <button class="btn">Preorder</button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -529,11 +507,14 @@
         <div class="container">
             <div class="remarksBoxIn">
                 <ul class="remarksSlider">
+                    {% for remark in remarks %}
                     <li>
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="remarksImg">
-                                    <img src="{% static 'images/content/muhit_rana.jpg' %}" alt="">
+                                    {% if remark.image %}
+                                    <img  src="{{ remark.image.url }}" alt="">
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -541,23 +522,23 @@
                                     <span class="borderTop"></span>
                                     <span class="borderBtm"></span>
                                     <h2>Inspiring Remarks</h2>
-                                    <p>I always believe in the power of words, whether they are expressed in writing, or
-                                        verbally. That is why when I decided to take my website redesign and e-mail
-                                        marketing business to the next level... <a href="#">Readmore</a></p>
-                                    <h4 class="remakName">Muhit Rana</h4>
-                                    <p>e-Learning Specialist</p>
+                                    <p>{{ remark.remarks|truncatewords:50 }}</p>
+                                    <h4 class="remakName">{{ remark.author }}</h4>
+                                    <p>{{ remark.des }}</p>
                                     <div class="socialBox">
                                         <ul class="socialicon">
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                                            <li><a href="{{ remark.fb }}"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="{{ remark.twi }}"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="{{ remark.sky }}"><i class="fab fa-skype"></i></a></li>
                                         </ul>
                                     </div>
-                                    <a class="btn" href="allInspiringRemarks">See All Remarks</a>
+{#                                    <a class="btn" href="allInspiringRemarks">See All Remarks</a>#}
                                 </div>
                             </div>
                         </div>
                     </li>
+                    {% empty %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -577,7 +558,8 @@
                             <h2>Get Discount</h2>
                             <p>Subscribe our newsletter and get discount </p>
                         </div>
-                        <form action="" method="post" role="form">
+                        <form action="{% url 'subc' %}" method="post">
+                            {% csrf_token %}
                             <div class="input-group">
                                 <input class="form-control" name="email" placeholder="Enter your email" type="email">
                                 <span class="input-group-addon"><input value="" name="btn_news" class="btn"

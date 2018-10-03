@@ -40,14 +40,14 @@
                                     </div>
                                     {#             For Order                       #}
                                     {% if prd.is_stock %}
-                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
+                                        <button onclick="window.location.href='{% url 'order' slug=prd.slug %}'" type="button"
                                                 class="btn marTop20">
                                             <i class="fas fa-cart-plus"></i>
                                             Order Now
 
                                         </button>
                                     {% else %}
-                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
+                                        <button onclick="window.location.href='{% url 'order' slug=prd.slug %}'" type="button"
                                                 class="btn marTop20">
                                             <i class="fas fa-cart-plus"></i>
                                             Request To Order

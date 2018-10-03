@@ -7,8 +7,10 @@
             <div class="cartOverlay">
                 <div class="cartOverlayIn">
                     <ul>
-                        <li><a class="btn btn-info" role="button" data-fancybox="gallery1" href="#{{ prd.pk }}">View Details </a></li>
-                        <li><a class="btn btn-info" role="button"  href="{% url 'single_product' slug=prd.slug %}">Buy Now</a></li>
+                        <li><a class="btn btn-info" role="button" data-fancybox="gallery1" href="#{{ prd.pk }}">View
+                            Details </a></li>
+                        <li><a class="btn btn-info" role="button" href="{% url 'single_product' slug=prd.slug %}">Buy
+                            Now</a></li>
                     </ul>
                 </div>
                 <div id="{{ prd.pk }}" class="prodctPop">
@@ -47,15 +49,13 @@
                                     </div>
                                     {#             For Order                       #}
                                     {% if prd.is_stock %}
-                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
-                                                class="btn marTop20">
+                                        <button onclick="window.location.href='{% url 'order' slug=prd.slug %}'" type="button" class="btn marTop20">
                                             <i class="fas fa-cart-plus"></i>
                                             Order Now
 
                                         </button>
                                     {% else %}
-                                        <button onclick="window.location.href='{% url 'index' %}'" type="button"
-                                                class="btn marTop20">
+                                        <button onclick="window.location.href='{% url 'order' slug=prd.slug %}'" type="button" class="btn marTop20">
                                             <i class="fas fa-cart-plus"></i>
                                             Request To Order
 

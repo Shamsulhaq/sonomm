@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 
-from auth_module.views import registration,getlogin,getlogout
+from auth_module.views import registration,getlogin,getlogout,get_email
 
 urlpatterns = [
     path('registration/', registration, name='registration'),
+    path('sub/',get_email,name='subc'),
     # path('profile/', addCustomer, name='addCustomer'),
     path('login/', getlogin, name='login'),
     path('logout/', getlogout, name='logout'),
