@@ -167,8 +167,7 @@
                                 <div class="row">
                                     {% for prd in orproducts %}
                                         {% if cat == prd.category %}
-
-                                            {% include 'product/product.html' %}
+                                            {% include 'product/product.html' with prd=prd %}
 
                                         {% endif %}
                                     {% empty %}

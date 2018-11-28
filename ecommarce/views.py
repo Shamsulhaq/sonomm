@@ -20,12 +20,7 @@ def index(request):
     offer = LimitedOffer.objects.all().filter(active=True)
     category = Category.objects.all()
     categorys = SubCategory.objects.filter(mainCat__name="Organic")
-    paginator = Paginator(products, 8)  # Show 8 contacts per page
-    page = request.GET.get('page')
-    products = paginator.get_page(page)
-    paginator = Paginator(orproducts, 8)
-    page = request.GET.get('page')
-    orproducts = paginator.get_page(page)
+      # Show 8 contacts per page
 
     context = {
         'orproducts': orproducts,
